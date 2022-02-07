@@ -18,16 +18,16 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 
 @register(outgoing=True, pattern="^.help(?: |$)(.*)")
-async def help(diorbot):
+async def help(yaudahiya):
     """ For .help command,"""
     args = diorbot.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await diorbot.edit(str(CMD_HELP[args]))
+            await yaudahiya.edit(str(CMD_HELP[args]))
         else:
-            await diorbot.edit("**NGETIK APAANSI KONTOL!**")
+            await yaudahiya.edit("**Ngetik Apaan Sih Kontol!**")
             await asyncio.sleep(30)
-            await diorbot.delete()
+            await yaudahiya.delete()
     else:
         string = ""
         for i in CMD_HELP:
