@@ -41,7 +41,7 @@ async def lastname(steal):
                 "No records"
             ):
                 await steal.edit(
-                    "```Saya Tidak Menemukan Informasi Pengguna Ini, Pengguna Ini Belum Pernah Mengganti Nama Sebelumnya```"
+                    "```Sialan nih bocah ga pernah ganti nama apa begimana dah, gw ga menemukan informasi sedikitpun ngentot```"
                 )
                 await steal.client.delete_messages(
                     conv.chat_id, [msg.id, r.id, response.id]
