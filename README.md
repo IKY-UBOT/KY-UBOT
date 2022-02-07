@@ -1,4 +1,4 @@
-<h1 align="center">KALO FORK TUH KASIH LAH BINTANG 🤨</h1>
+<h1 align="center">KALO FORK/CLONE TUH NINGGALIN STARS GOBLOG SIA ANYING!!!🤨</h1>
 
 <p align="center">
     <a href="https://github.com/DIORrios285/DIOR-UBOT/commits/DIOR-UBOT"><img 
@@ -15,8 +15,9 @@ src="https://img.shields.io/pypi/v/telethon?color=important&label=telethon&logo=
 ## DISCLAIMER
 
 ```
-Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
-Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
+Gua sih enggak bertanggung jawab atas penyalah gunaan userbot ini.
+Gunakan userbot ini dengan resiko lu sendiri, dan gunakan dengan bijak, oke?..
+Sekian dan terimakasih!!!
 ```
 
 ## Support!
@@ -46,9 +47,13 @@ src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/pyth
 
 ## © Credits
 
-🙏 **TERIMAKASIH BANYAK BANYAK BANYAK BANYAK BANGET DAH KEPADA**
+**TERIMAKASIH BANYAK BANYAK BANYAK TERIMAKASIH DAH POKOKNYA KEPADA**
+
+*   [Risman](https://github.com/mrismanaziz/Man-Userbot) Suhu-Userbot
 *   [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot) Kyy-Userbot
-*   [Skyzu](https://github.com/Skyzu/Skyzu-userbot) Skyzu-userbot
-*   [Ramadhani](https://github.com/ramadhani892/RAM-UBOT) RAM-UBOT
-*   [Koala](https://github.com/ManusiaRakitan/Kampang-Bot)    Kampang - Bot
-*   DAN KEPADA SELURUH USERBOT INDONESIA LAINNYA!.
+*   [Skyzu](https://github.com/Skyzu/skyzu-userbot) Skyzu-userbot
+*   [Ira](https://github.com/zigaz23) Gada-Userbot
+*   [Alfa](https://github.com/CoeF) Alfa-Userbot
+*   DAN KEPADA SELURUH USERBOT INDONESIA LAINNYA!..
+
+MMohon maap banget nih yee yang gak di cantumin di credit 🙏
