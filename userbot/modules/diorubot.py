@@ -78,9 +78,9 @@ async def typewriter(typew):
     sleep(2)
     await typew.edit("`Apa Autis?`")
     sleep(2)
-    await typew.edit("`Gosah sokeras jelek`")
+    await typew.edit("`Gosah sokeras lu kontolll`")
     sleep(1)
-    await typew.edit("`Gua ga takut sama bocah bocah ampas kek lu!`")
+    await typew.edit("`Gua ga takut sama bocah bocah ampas kek lu kontollll!`")
 
 
 @register(outgoing=True, pattern='^.war(?: |$)(.*)')
@@ -90,7 +90,7 @@ async def typewriter(typew):
     sleep(2)
     await typew.edit("`Tapi, kalo diliat-liat kesannya lebih ke stand up komedi😅`")
     sleep(3)
-    await typew.edit("`eh iya, Lu kan badut🤡`")
+    await typew.edit("`ehh iya, Lu kan badut🤡`")
     sleep(3)
     await typew.edit("`Disuruh war malah cerpen`")
     sleep(3)
