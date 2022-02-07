@@ -18,7 +18,7 @@ from userbot.events import register
 from userbot import bot, CMD_HELP, ALIVE_NAME
 
 
-# dior ganteng makaseeeh
+# Dior ganteng makaseeeh
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname()
 # ============================================
