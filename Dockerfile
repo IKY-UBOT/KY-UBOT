@@ -1,8 +1,13 @@
 # Using Python Slim-Buster
 FROM kyyex/kyy-userbot:buster
-# DIOR-UBOT
-# Skyzu-UserBot
-#yaudah iya
+
+#━━━━━ Userbot Telegram ━━━━━
+#━━━━━ By Man-Userbot ━━━━━
+#━━━━━ By Skyzuu-Userbot ━━━━━
+#━━━━━ By Dior-Userbot ━━━━━
+#━━━━━ By Kyy-Userbot ━━━━━
+
+#Diapus gua santet online
 
 RUN git clone -b DIOR-UBOT https://github.com/DIORrios285/DIOR-UBOT /root/userbot
 RUN mkdir /root/userbot/.bin
