@@ -144,7 +144,7 @@ async def gben(userbot):
          f"││➩ **Tuan:** `{ALIVE_NAME}` \n" 
          f"││➩ **Pengguna:** [{user.first_name}](tg://user?id={user.id}) \n" 
          f"││➩ **Aksi:** `Global Banned` \n"
-         f"╰┈─────────────━\n\n"
+         f"╰┈─────────────━\n"
          f"❂ __Gbanned by ⚡𝕯𝖎𝖔𝖗-𝖀𝖇𝖔𝖙⚡__")
 
 
@@ -213,7 +213,7 @@ async def gunben(userbot):
         f"││➩ **Tuan:** `{ALIVE_NAME}` \n" 
         f"││➩ **Pengguna:** [{user.first_name}](tg://user?id={user.id}) \n" 
         f"││➩ **Aksi:** `Un GBanned` \n\n" 
-        f"╰┈─────────────━\n\n"
+        f"╰┈─────────────━\n"
         f"❂ __Gbanned by ⚡𝕯𝖎𝖔𝖗-𝖀𝖇𝖔𝖙⚡__")
 
 
