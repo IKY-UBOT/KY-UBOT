@@ -1,7 +1,7 @@
 # Using Python Slim-Buster
 FROM kyyex/kyy-userbot:buster
-# RAM-UBOT
-# Geez-UserBot
+# DIOR-UBOT
+# Skyzu-UserBot
 #yaudah iya
 
 RUN git clone -b DIOR-UBOT https://github.com/DIORrios285/DIOR-UBOT /root/userbot
