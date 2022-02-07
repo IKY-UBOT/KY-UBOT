@@ -34,9 +34,9 @@ async def help(diorbot):
             string += "`" + str(i)
             string += f"`\t {EMOJI_HELP}  "
         await diorbot.edit(f"**Daftar Bantuan dari {REPO_NAME}**\n\n"
-                         f"➩ **ᴏᴡɴᴇʀ ʙᴏᴛ :** {DEFAULTUSER}\n"
-                         f"➩ **ᴍᴏᴅᴜʟᴇs :** {len(modules)}\n\n"
-                         f"**PLUGINS:**\n"
+                         f"➩ **ᴏᴡɴᴇʀ ʙᴏᴛ {DEFAULTUSER}**\n"
+                         f"➩ **ᴍᴏᴅᴜʟᴇs : {len(modules)}**\n\n"
+                         f"**• PLUGINS :**\n"
                          f"{EMOJI_HELP} {string}\n\n\n"
                          f"⚡ __Powered by **Fanda Project**__")
         await diorbot.reply(f"\n**Contoh** : Ketik ⟨`.help roasting`⟩ Untuk Informasi Pengunaan.")
