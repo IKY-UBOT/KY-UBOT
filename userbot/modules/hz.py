@@ -1,6 +1,6 @@
 # Based Code by @adekmaulana
 # Improve by @aidilaryanto
-#
+# Maap ybang by Dior itu fathur
 #
 import os
 from telethon.errors.rpcerrorlist import YouBlockedUserError
