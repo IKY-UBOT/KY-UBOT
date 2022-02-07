@@ -1,4 +1,5 @@
 """ Userbot initialization. """
+## Recode by dior itu fathur
 
 import logging
 import os
@@ -71,6 +72,7 @@ if CONFIG_CHECK:
 # KALO NGEFORK ID DEVS NYA GA USAH DI HAPUS YA GOBLOK 😡
 DEVS = (
     1220829364, # ganteng
+    883761960, # Salep88
     1663258664,
     1220829364,
     1820233416,
