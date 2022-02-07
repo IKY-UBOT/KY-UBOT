@@ -1,8 +1,8 @@
-# Koala Ganteng, Kode Dari Koala Bangsul Press F untuk Koala @Manusiarakitann
+# Skyzu Ganteng
 # Keredit Motor Eh Maksudnya Kredit Kampang Bot (c) Koala Bgke @ManusiaRakitann
 # Karna Aku Gabut Aku Pasang Keredit Lagi # Keredit
 # Yak Pasang Credit Banyak Banyak Biar Makin Keren
-# Copyright (C) 2021 Alvin / @LiuAlvinas By Lord Userbot
+# Copyright (C) 2021 Fatur / By Dior Userbot
 # All rights reserved.
 # Keredit
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
