@@ -15,14 +15,14 @@ async def corona(event):
     covid = Covid(source="worldometers")
     country_data = covid.get_status_by_country_name(country)
     if country_data:
-        output_text = f"`⚠️Terdeteksi : {country_data['confirmed']} (+{country_data['new_cases']})`\n"
-        output_text += f"`☢️Aktif         : {country_data['active']}`\n"
-        output_text += f"`🧟Sakaratul maut       : {country_data['critical']}`\n"
-        output_text += f"`🧛baru nyusul : {country_data['new_deaths']}`\n\n"
-        output_text += f"`⚰️Tinggal nama     : {country_data['deaths']} (+{country_data['new_deaths']})`\n"
-        output_text += f"`🐖Cipok pasien    : {country_data['new_cases']}`\n"
-        output_text += f"`🤵Ga jadi mati        : {country_data['recovered']}`\n"
-        output_text += "`📍Total Tes     : N/A`\n\n"
+        output_text = f"`⚠️ Terdeteksi : {country_data['confirmed']} (+{country_data['new_cases']})`\n"
+        output_text += f"`☢️ Aktif         : {country_data['active']}`\n"
+        output_text += f"`🧟 Sakaratul maut       : {country_data['critical']}`\n"
+        output_text += f"`🧛 baru nyusul : {country_data['new_deaths']}`\n\n"
+        output_text += f"`⚰️ Tinggal nama     : {country_data['deaths']} (+{country_data['new_deaths']})`\n"
+        output_text += f"`🐖 Cipok pasien    : {country_data['new_cases']}`\n"
+        output_text += f"`🤵 Ga jadi mati        : {country_data['recovered']}`\n"
+        output_text += "`📍 Total Tes     : N/A`\n\n"
         output_text += f"Data disediakan oleh [Worldometer](https://www.worldometers.info/coronavirus/country/{country})"
     else:
         output_text = "Tidak ada informasi ditemukan untuk Negara ini!"
@@ -37,14 +37,14 @@ async def corona(event):
     covid = Covid(source="worldometers")
     country_data = covid.get_status_by_country_name(country)
     if country_data:
-        output_text = f"`⚠️Terkonfirmasi : {country_data['confirmed']} (+{country_data['new_cases']})`\n"
-        output_text += f"`☢️Aktif         : {country_data['active']}`\n"
-        output_text += f"`🧟Sakaratul maut        : {country_data['critical']}`\n"
-        output_text += f"`🧛baru nyusul : {country_data['new_deaths']}`\n\n"
-        output_text += f"`⚰️Tinggal nama     : {country_data['deaths']} (+{country_data['new_deaths']})`\n"
-        output_text += f"`🐖Cipok pasien    : {country_data['new_cases']}`\n"
-        output_text += f"`🤵Ga jadi mati        : {country_data['recovered']}`\n"
-        output_text += "`📍Total Tes     : N/A`\n\n"
+        output_text = f"`⚠️ Terkonfirmasi : {country_data['confirmed']} (+{country_data['new_cases']})`\n"
+        output_text += f"`☢️ Aktif         : {country_data['active']}`\n"
+        output_text += f"`🧟 Sakaratul maut        : {country_data['critical']}`\n"
+        output_text += f"`🧛 baru nyusul : {country_data['new_deaths']}`\n\n"
+        output_text += f"`⚰️ Tinggal nama     : {country_data['deaths']} (+{country_data['new_deaths']})`\n"
+        output_text += f"`🐖 Cipok pasien    : {country_data['new_cases']}`\n"
+        output_text += f"`🤵 Ga jadi mati        : {country_data['recovered']}`\n"
+        output_text += "`📍 Total Tes     : N/A`\n\n"
         output_text += f"Data disediakan oleh [Worldometer](https://www.worldometers.info/coronavirus/country/{country})"
     else:
         output_text = "Tidak ada informasi ditemukan untuk Negara ini!"
