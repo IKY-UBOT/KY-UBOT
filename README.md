@@ -46,13 +46,12 @@ src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/pyth
 <a href="https://telegram.dog/XTZ_HerokuBot?start=RElPUnJpb3MyODUvRElPUi1VQk9UIERJT1ItVUJPVA"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="250""/</a>  </p>
 
 
-© Credits 🏴‍☠️
+## Credits
 
 </details>
 
 <details>
-<summary><b>TERIMAKASIH BANYAK BANYAK BANYAK TERIMAKASIH DAH POKOKNYA KEPADA
-  </b></summary>
+<summary><b> TAP </b></summary>
 <br>
 
 *   [Risman](https://github.com/mrismanaziz/Man-Userbot) Suhu-Userbot
