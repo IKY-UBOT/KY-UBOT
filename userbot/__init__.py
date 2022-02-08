@@ -399,7 +399,13 @@ async def check_botlog_chatid():
         )
         quit(1)
 
-        elif not BOTLOG or not LOGSPAMMER:
+    elif not BOTLOG_CHATID and BOTLOG:
+        LOGS.info(
+            "You must set up the BOTLOG_CHATID variable in the config.env or environment variables, for the userbot logging feature to work."
+        )
+        quit(1)
+
+    elif not BOTLOG or not LOGSPAMMER:
         return
 
     entity = await bot.get_entity(BOTLOG_CHATID)
