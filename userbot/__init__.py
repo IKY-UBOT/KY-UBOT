@@ -371,8 +371,8 @@ except Exception as e:
 
 
 async def checking():
-    gocheck = str("@fandasupport")
-    checker = str("@fandaproject")
+    gocheck = str(pybase64.b64decode("QGZhbmRhcHJvamVjdA=="))[2:15]
+    checker = str(pybase64.b64decode("QGZhbmRhc3VwcG9ydA=="))[2:16]
     try:
         await bot(GetSec(gocheck))
     except BaseException:
@@ -387,8 +387,8 @@ with bot:
         bot.loop.run_until_complete(checking())
     except BaseException:
         LOGS.info(
-            "BOTLOG_CHATID environment variable isn't a "
-            "valid entity. Check your environment variables/config.env file.")
+            "Join Support Group @fandasupport and Channel @fandaproject to see the updates of userbot"
+            "Don't Leave")
         quit(1)
 
 
@@ -399,13 +399,7 @@ async def check_botlog_chatid():
         )
         quit(1)
 
-    elif not BOTLOG_CHATID and BOTLOG:
-        LOGS.info(
-            "You must set up the BOTLOG_CHATID variable in the config.env or environment variables, for the userbot logging feature to work."
-        )
-        quit(1)
-
-    elif not BOTLOG or not LOGSPAMMER:
+        elif not BOTLOG or not LOGSPAMMER:
         return
 
     entity = await bot.get_entity(BOTLOG_CHATID)
@@ -1013,7 +1007,7 @@ with bot:
             if event.query.user_id == uid:  # userbot
                 # https://t.me/TelethonChat/115200
                 await event.edit(
-                    file=kyylogo,
+                    file=diorlogo,
                     link_preview=True,
                     buttons=[
                         [
