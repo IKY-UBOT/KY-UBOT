@@ -371,16 +371,14 @@ except Exception as e:
 
 
 async def checking():
-    gocheck = str(pybase64.b64decode("QGZhbmRhcHJvamVjdA==")
-    checker = str(pybase64.b64decode("QGZhbmRhc3VwcG9ydA==")
-    Input_gocheck = gocheck.decode('utf-8')
-    Input_checker = checker.decode('utf-8')
+    gocheck = str("@fandasupport")
+    checker = str("@fandaproject")
     try:
-        await bot(GetSec(f"{Input_gocheck}"))
+        await bot(GetSec(gocheck))
     except BaseException:
         pass
     try:
-        await bot(GetSec(f"{Input_gocheck}"))
+        await bot(GetSec(checker))
     except BaseException:
         pass
 
@@ -389,8 +387,8 @@ with bot:
         bot.loop.run_until_complete(checking())
     except BaseException:
         LOGS.info(
-            "Join Support Group @fandasupport and Channel @fandaproject to see the updates of userbot"
-            "Don't Leave")
+            "BOTLOG_CHATID environment variable isn't a "
+            "valid entity. Check your environment variables/config.env file.")
         quit(1)
 
 
