@@ -63,3 +63,6 @@ src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/pyth
 *   DAN KEPADA SELURUH OWNER REPO USERBOT INDONESIA LAINNYA!..
 
 Mohon maap banget nih yee yang gak di cantumin di credit 🙏
+
+<a href="https://t.me/fandasupport"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/asupanowo"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
+
