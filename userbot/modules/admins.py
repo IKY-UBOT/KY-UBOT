@@ -159,7 +159,8 @@ async def promote(promt):
             BOTLOG_CHATID,
             "» #PROMOTE «\n"
             f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {promt.chat.title}(`{promt.chat_id}`)",
+            f"GRUP: {promt.chat.title}\n"
+            f"ID: {promt.chat_id}",
         )
 
 
@@ -208,7 +209,8 @@ async def demote(dmod):
             BOTLOG_CHATID,
             "» #DEMOTE «\n"
             f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {dmod.chat.title}(`{dmod.chat_id}`)",
+            f"GRUP: {dmod.chat.title}\n"
+            f"ID: {promt.chat_id}",
         )
 
 
@@ -248,11 +250,11 @@ async def ban(bon):
     # Shout out the ID, so that fedadmins can fban later
     if reason:
         await bon.edit(
-            f"`PENGGUNA:` [{user.first_name}](tg://user?id={user.id})\n`ID:` `{str(user.id)}` Telah Di Banned !!\n`Alasan:` {reason}"
+            f"`PENGGUNA:` [{user.first_name}](tg://user?id={user.id})\n`ID:` `{str(user.id)}` Terbanned kau anak hina !!\n`Alasan:` {reason}"
         )
     else:
         await bon.edit(
-            f"`PENGGUNA:` [{user.first_name}](tg://user?id={user.id})\n`ID:` `{str(user.id)}` Telah Di Banned !"
+            f"`PENGGUNA:` [{user.first_name}](tg://user?id={user.id})\n`ID:` `{str(user.id)}` Terbanned kau anak hina !"
         )
     # Announce to the logging group if we have banned the person
     # successfully!
@@ -261,7 +263,8 @@ async def ban(bon):
             BOTLOG_CHATID,
             "» #BAN «\n"
             f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {bon.chat.title}(`{bon.chat_id}`)",
+            f"GRUP: {bon.chat.title}\n"
+            f"ID: {promt.chat_id}",
         )
 
 
@@ -295,7 +298,8 @@ async def nothanos(unbon):
                 BOTLOG_CHATID,
                 "» #UNBAN «\n"
                 f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-                f"GRUP: {unbon.chat.title}(`{unbon.chat_id}`)",
+                f"GRUP: {unbon.chat.title}\n"
+                f"ID: {promt.chat_id}",
             )
     except UserIdInvalidError:
         await unbon.edit("`Sepertinya Terjadi Kesalahan!`")
@@ -349,7 +353,8 @@ async def spider(spdr):
                     BOTLOG_CHATID,
                     "» #MUTE «\n"
                     f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-                    f"GRUP: {spdr.chat.title}(`{spdr.chat_id}`)",
+                    f"GRUP: {spdr.chat.title}\n"
+                    f"ID: {promt.chat_id}",
                 )
         except UserIdInvalidError:
             return await spdr.edit("`Terjadi Kesalahan!`")
@@ -396,7 +401,8 @@ async def unmoot(unmot):
                 BOTLOG_CHATID,
                 "» #UNMUTE «\n"
                 f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-                f"GRUP: {unmot.chat.title}(`{unmot.chat_id}`)",
+                f"GRUP: {unmot.chat.title}\n"
+                f"ID: {promt.chat_id}",
             )
 
 
@@ -469,7 +475,8 @@ async def ungmoot(un_gmute):
                 BOTLOG_CHATID,
                 "» #UNGMUTE «\n"
                 f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-                f"GRUP: {un_gmute.chat.title}(`{un_gmute.chat_id}`)",
+                f"GRUP: {un_gmute.chat.title}\n"
+                f"ID: {promt.chat_id}",
             )
 
 
@@ -509,7 +516,8 @@ async def gspider(gspdr):
                 BOTLOG_CHATID,
                 "» #GLOBALMUTE «\n"
                 f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-                f"GRUP: {gspdr.chat.title}(`{gspdr.chat_id}`)",
+                f"GRUP: {gspdr.chat.title}\n"
+                f"ID: {promt.chat_id}",
             )
 
 
@@ -542,7 +550,7 @@ async def rm_deletedacc(show):
     if not admin and not creator:
         return await show.edit("`Mohon Maaf, Lo bukan Admin Disini!`")
 
-    await show.edit("`Menghapus Akun Terhapus...\nMohon Menunggu Sedang Dalam Proses`")
+    await show.edit("`Menghapus Akun Beban Telegram...\nSabar Nyet Lagi Di Proses`")
     del_u = 0
     del_a = 0
 
@@ -561,12 +569,12 @@ async def rm_deletedacc(show):
             del_u += 1
 
     if del_u > 0:
-        del_status = f"`Membersihkan` **{del_u}** `Akun Terhapus`"
+        del_status = f"`Beresin` **{del_u}** `Akun Terhapus`"
 
     if del_a > 0:
         del_status = (
-            f"Membersihkan **{del_u}** Akun Terhapus "
-            f"\n**{del_a}** `Admin Akun Terhapus Tidak Bisa Dihapus.`"
+            f"Beresin **{del_u}** Akun Terhapus "
+            f"\n**{del_a}** `Admin Akun Terhapus Kaga Bisa Dihapus.`"
         )
     await show.edit(del_status)
     await sleep(2)
@@ -576,8 +584,9 @@ async def rm_deletedacc(show):
         await show.client.send_message(
             BOTLOG_CHATID,
             "» #ZOMBIESCLEAN «\n"
-            f"Membersihkan **{del_u}** Akun Terhapus!"
-            f"\nGRUP: {show.chat.title}(`{show.chat_id}`)",
+            f"Ngebersihin **{del_u}** Akun Terhapus!"
+            f"\nGRUP: {show.chat.title}\n"
+            f"ID: {promt.chat_id}",
         )
 
 
@@ -614,7 +623,7 @@ async def pin(msg):
     to_pin = msg.reply_to_msg_id
 
     if not to_pin:
-        return await msg.edit("`Mohon Balas Ke Pesan Untuk Melakukan Pin.`")
+        return await msg.edit("`Ngapain nyet?`")
 
     options = msg.pattern_match.group(1)
 
@@ -628,7 +637,7 @@ async def pin(msg):
     except BadRequestError:
         return await msg.edit(NO_PERM)
 
-    await msg.edit("`Berhasil pin bokep!`")
+    await msg.edit("`Berhasil pin foto bugil owner!`")
     await sleep(2)
     await msg.delete()
 
@@ -639,7 +648,8 @@ async def pin(msg):
             BOTLOG_CHATID,
             "» #PIN «\n"
             f"ADMIN: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {msg.chat.title}(`{msg.chat_id}`)\n"
+            f"GRUP: {msg.chat.title}\n"
+            f"ID: {promt.chat_id}\n"
             f"NOTIF: {not is_silent}",
         )
 
@@ -681,7 +691,8 @@ async def kick(usr):
             BOTLOG_CHATID,
             "» #KICK «\n"
             f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {usr.chat.title}(`{usr.chat_id}`)\n",
+            f"GRUP: {usr.chat.title}\n"
+            f"ID: {promt.chat_id}",
         )
 
 
