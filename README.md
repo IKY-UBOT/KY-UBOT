@@ -48,10 +48,10 @@ src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/pyth
 
 ## Credits
 
-</details>
+</Click>
 
 <details>
-<summary><b> TAP </b></summary>
+<summary><b> Makasih banyak nich ya,buat para suhu² dibawah </b></summary>
 <br>
 
 *   [Risman](https://github.com/mrismanaziz/Man-Userbot) Suhu-Userbot
@@ -59,6 +59,7 @@ src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/pyth
 *   [Skyzu](https://github.com/Skyzu/skyzu-userbot) Skyzu-userbot
 *   [Ira](https://github.com/zigaz23) Gada-Userbot
 *   [Alfa](https://github.com/CoeF) Alfa-Userbot
-*   DAN KEPADA SELURUH USERBOT INDONESIA LAINNYA!..
+
+*   DAN KEPADA SELURUH OWNER REPO USERBOT INDONESIA LAINNYA!..
 
 Mohon maap banget nih yee yang gak di cantumin di credit 🙏
