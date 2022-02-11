@@ -6,7 +6,6 @@
 """ Userbot module for managing events.
  One of the main components of the userbot. """
 
-
 import sys
 from asyncio import create_subprocess_shell as asyncsubshell
 from asyncio import subprocess as asyncsub
@@ -98,10 +97,10 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     text = "**DIOR-UBOT ERROR**\n"
-                    link = "Silahkan chat: @UURFAVBOYS1 atau @FATURDIORJUGA"
+                    link = "Silahkan chat: @aboutdiorz"
                     text += "Untuk melaporkan kesalahan"
-                    text += f"- tinggal teruskan pesan ini {link}.\n"
-                    text += "FATUR Siap Membantu Kamu\n"
+                    text += f"tinggal teruskan pesan ini {link}.\n"
+                    text += "Dior Siap Membantu Kamu\n"
 
                     ftext = "========== DISCLAIMER =========="
                     ftext += "\nThis file uploaded ONLY here,"
