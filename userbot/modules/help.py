@@ -18,27 +18,27 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 
 @register(outgoing=True, pattern="^.help(?: |$)(.*)")
-async def help(yaudahiya):
+async def help(event):
     """ For .help command,"""
-    args = diorbot.pattern_match.group(1).lower()
+    args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await yaudahiya.edit(str(CMD_HELP[args]))
+            await event.edit(str(CMD_HELP[args]))
         else:
-            await yaudahiya.edit("**Ngetik Apaan Sih Kontol!**")
+            await event.edit("**Ngetik Apaan Sih Kontol!**")
             await asyncio.sleep(30)
-            await yaudahiya.delete()
+            await event.delete()
     else:
         string = ""
         for i in CMD_HELP:
             string += "`" + str(i)
             string += f"`\t {EMOJI_HELP}  "
-        await yaudahiya.edit(f"**Daftar Bantuan dari {REPO_NAME}**\n\n"
+        await event.edit(f"**Daftar Bantuan dari {REPO_NAME}**\n\n"
                          f"➩ **ᴏᴡɴᴇʀ ʙᴏᴛ {DEFAULTUSER}**\n"
                          f"➩ **ᴍᴏᴅᴜʟᴇs : {len(modules)}**\n\n"
                          f"**• PLUGINS :**\n"
                          f"{EMOJI_HELP} {string}\n\n\n"
                          f"⚡ __Powered by **Fanda Project**__")
-        await yaudahiya.reply(f"\n**Contoh** : Ketik ⟨`.help roasting`⟩ Untuk Informasi Pengunaan.")
+        await event.reply(f"\n**Contoh** : Ketik ⟨`.help roasting`⟩ Untuk Informasi Pengunaan.")
         await asyncio.sleep(120)
-        await yaudahiya.delete()
+        await event.delete()
