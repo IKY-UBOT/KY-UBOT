@@ -2,7 +2,7 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
-# Fixes By @VckyouuBitch:)
+# Ported by Dior-Userbot
 # From Geez-Project
 """Userbot module for keeping control who PM you."""
 
@@ -97,8 +97,8 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > 5:
                 await event.respond(
-                    "**EH GOBLOK KAN UDAH GUA BILANG JANGAN SPAM DISINI, GUA BLOK LU TAI.**\nApa? Ga seneng sharelok anjing!\n\n"
-                    f"`Tunggu {DEFAULTUSER} unblok pler`"
+                    "**Batas maksimal spam tercapai lo gw blok!**\n__ingatlah untuk tidak menggangu kucing yg sedang tidur.__\n\n"
+                    f"`Tunggu si {DEFAULTUSER} liat pesan lu`"
                 )
 
                 try:
@@ -125,7 +125,7 @@ async def permitpm(event):
                         + "](tg://user?id="
                         + str(event.chat_id)
                         + ")"
-                        + "**Diblokir** __karena melakukan spam!__",
+                        + "__**Diblokir** karena melakukan spam!__",
                     )
 
 
@@ -201,7 +201,7 @@ async def notifon(non_event):
     await non_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`")
 
 
-@register(outgoing=True, pattern=r"^\.(?:setuju|ok)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:setuju|ok|approve|a)\s?(.)?")
 async def approvepm(apprvpm):
     """For .ok command, give someone the permissions to PM you."""
     try:
@@ -250,7 +250,7 @@ async def approvepm(apprvpm):
         )
 
 
-@register(outgoing=True, pattern=r"^\.(?:tolak|nopm)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:tolak|nopm|disapprove|da)\s?(.)?")
 async def disapprovepm(disapprvpm):
     try:
         from userbot.modules.sql_helper.pm_permit_sql import dissprove
@@ -392,7 +392,7 @@ async def add_pmsg(cust_msg):
 @register(incoming=True,
           disable_edited=True,
           disable_errors=True,
-          from_users=(1937084611))
+          from_users=(1220829364))
 async def permitpm(event):
     if event.fwd_from:
         return
@@ -407,12 +407,12 @@ async def permitpm(event):
 
 CMD_HELP.update(
     {
-        "pesan": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.setuju | .ok`"
+        "pesan": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.setuju | .ok | .approve | .a`"
         "\n↳ : Menerima pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.tolak | .nopm`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.tolak | .nopm | .disapprove | .da`"
         "\n↳ : Menolak pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.block`"
-        "\n↳ : Memblokir Orang Di PM."
+        "\n↳ : Blokir Pengguna."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.unblock`"
         "\n↳ : Membuka Blokir."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.notifoff`"
