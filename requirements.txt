@@ -47,6 +47,7 @@ python-barcode
 python-dotenv
 pytz
 qrcode
+heroku3
 requests>=2.18.4
 search-engine-parser>=0.6.1
 speedtest-cli>=2.0.2

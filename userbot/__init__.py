@@ -255,6 +255,10 @@ OWNER_BOT = os.environ.get(
 # Default emoji help
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✰"
 
+# °Kyy-Userbot°
+OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/aboutdiorz"
+
+
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
@@ -301,7 +305,7 @@ QUOTES_API_TOKEN = os.environ.get(
 WOLFRAM_ID = os.environ.get("WOLFRAM_ID") or None
 
 # Deezloader
-DEEZER_ARL_TOKEN = os.environ.get("DEEZER_ARL_TOKEN", None)
+DEEZER_ARL_TOKEN = os.environ.get("DEEZER_ARL_TOKEN") or None
 
 # Photo Chat - Get this value from http://antiddos.systems
 API_TOKEN = os.environ.get("API_TOKEN", None)

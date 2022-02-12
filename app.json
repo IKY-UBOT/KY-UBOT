@@ -68,14 +68,6 @@
       "description": "Set this to True in case you want the error logs to be stored in the userbot log group, instead of spitting out the file in the current chat, requires a valid BOTLOG_CHATID to be set, or /skip.",
       "value": "True",
       "required": true
-    },
-    "BOT_TOKEN": {
-      "description": "Setel ini untuk mengaktifkan menu inline bot. dapatkan tokennya dari @BotFather, atau /skip aja",
-      "required": false
-    },
-    "BOT_USERNAME": {
-      "description": "Username Bot Kamu dari @BotFather. atau /skip aja",
-      "required": false
     }
   },
   "addons": [
