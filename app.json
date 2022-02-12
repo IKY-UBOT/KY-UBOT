@@ -35,11 +35,6 @@
       "value": "Check Di Heroku Dashboard Mu",
       "required": true
     },
-    "BOTLOG": {
-      "description": "Kalo Mau Off in BOTLOG Ganti False, atau /skip aja",
-      "value": "True",
-      "required": true
-    },
     "BOTLOG_CHATID": {
       "description": "Buatlah Sebuah Grup Publik Lalu Masukkan Bot @MissRose_Bot Ke Grup Mu, Setelah itu Ketik /id dan copas disini. atau bergabung ke grup @diorspambot.",
       "value": "-1001220971181",
@@ -50,23 +45,8 @@
       "value": "-1001572742132",
       "required": true
     },
-    "PM_AUTO_BAN": {
-      "description": "PM Auto-Ban Feature Switch. Also known as the 'bleep blop, this is a bot...' module. /skip aja",
-      "value": "False",
-      "required": true
-    },
     "ALIVE_NAME": {
       "description": "Nama untuk menunjukan pesan .alive",
-      "required": true
-    },
-    "ALIVE_LOGO": {
-      "description": "Bisa di ganti dengan foto kalian atau /skip aja",
-      "value": "https://telegra.ph/file/d06eb2897484bacae1491.jpg",
-      "required": true
-    },
-    "LOGSPAMMER": {
-      "description": "Set this to True in case you want the error logs to be stored in the userbot log group, instead of spitting out the file in the current chat, requires a valid BOTLOG_CHATID to be set, or /skip.",
-      "value": "True",
       "required": true
     }
   },
