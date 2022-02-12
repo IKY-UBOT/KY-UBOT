@@ -33,12 +33,12 @@ async def help(yaudahiya):
         for i in CMD_HELP:
             string += "`" + str(i)
             string += f"`\t {EMOJI_HELP}  "
-        await diorbot.edit(f"**Daftar Bantuan dari {REPO_NAME}**\n\n"
+        await yaudahiya.edit(f"**Daftar Bantuan dari {REPO_NAME}**\n\n"
                          f"➩ **ᴏᴡɴᴇʀ ʙᴏᴛ {DEFAULTUSER}**\n"
                          f"➩ **ᴍᴏᴅᴜʟᴇs : {len(modules)}**\n\n"
                          f"**• PLUGINS :**\n"
                          f"{EMOJI_HELP} {string}\n\n\n"
                          f"⚡ __Powered by **Fanda Project**__")
-        await diorbot.reply(f"\n**Contoh** : Ketik ⟨`.help roasting`⟩ Untuk Informasi Pengunaan.")
+        await yaudahiya.reply(f"\n**Contoh** : Ketik ⟨`.help roasting`⟩ Untuk Informasi Pengunaan.")
         await asyncio.sleep(120)
-        await diorbot.delete()
+        await yaudahiya.delete()
