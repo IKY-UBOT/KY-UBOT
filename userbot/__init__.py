@@ -433,19 +433,14 @@ with bot:
         quit(1)
 
 
-async def check_alive():
-    await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**⚡𝕯𝖎𝖔𝖗-𝖀𝖇𝖔𝖙⚡ Berhasil Di Aktifkan**\n━━━━━━\n➠ **Bot Version:** `V8.0`\n➠ **Ketik** `.alive` **untuk Mengecek Bot**\n━━━━━━\n➠ **Group:** @fandasupport\n━━━━━━")
-    return
-
-with bot:
-    try:
-        bot.loop.run_until_complete(check_alive())
-    except BaseException:
-        LOGS.info(
-            "BOTLOG_CHATID environment variable isn't a "
-            "valid entity. Check your environment variables/config.env file.")
-        quit(1)
-
+# with bot:
+#     try:
+#         bot.loop.run_until_complete(check_alive())
+#     except BaseException:
+#         LOGS.info(
+#             "BOTLOG_CHATID environment variable isn't a "
+#             "valid entity. Check your environment variables/config.env file.")
+#         quit(1)
 
 # Global Variables
 COUNT_MSG = 0
