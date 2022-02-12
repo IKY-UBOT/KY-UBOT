@@ -97,7 +97,7 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     text = "**DIOR-UBOT ERROR**\n"
-                    link = "Silahkan chat: @aboutdiorz"
+                    link = "Silahkan chat: @uurfavboys"
                     text += "Untuk melaporkan kesalahan"
                     text += f"tinggal teruskan pesan ini {link}.\n"
                     text += "Dior Siap Membantu Kamu\n"
