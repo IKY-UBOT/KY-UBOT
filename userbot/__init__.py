@@ -948,8 +948,12 @@ with bot:
                     link_preview=True,
                     buttons=[
                         [
-                            Button.url("ɢʀᴏᴜᴘ​",t.me/fandasupport"),
-                            Button.url("ᴄʜᴀɴɴᴇʟ",t.me/fandaproject")],
+                            custom.Button.url(
+                                "ɢʀᴏᴜᴘ​",
+                                "https://t.me/fandasupport"),
+                            custom.Button.url(
+                                "ᴄʜᴀɴɴᴇʟ",
+                                "https://t.me/fandaproject")],
                     ]
                 )
 
