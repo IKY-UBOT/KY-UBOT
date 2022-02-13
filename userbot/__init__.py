@@ -479,7 +479,7 @@ def paginate_help(page_number, loaded_modules, prefix):
             modulo_page * number_of_rows: number_of_rows * (
                 modulo_page + 1)] + [
             (custom.Button.inline(
-                "<<ᴘʀᴇᴠɪᴏᴜꜱ", data="{}_prev({})".format(
+                "<<ɴᴇxᴛ", data="{}_prev({})".format(
                     prefix, modulo_page)), custom.Button.inline(
                         "ᴍᴇɴᴜ", data="{}_close({})".format(
                             prefix, modulo_page)), custom.Button.inline(
@@ -520,7 +520,7 @@ with bot:
                     )
             except Exception:
                 return await event.edit(
-                    "⛔ **Kamu Tidak Diizinkan Untuk Menekan Itu**!"
+                    "⛔ **Lo ga di izinin neken ini**!"
                 )
 
         diorlogo = INLINE_PIC
@@ -566,7 +566,7 @@ with bot:
                     ]
                 )
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Nanti Kena Ghosting."
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar Gw Gban!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.NewMessage(pattern="/ping"))
@@ -589,9 +589,9 @@ with bot:
             event.builder
             query = event.text
             if event.query.user_id == uid and query.startswith(
-                    "@Kayzuuuuu"):
+                    "@uurfavboys"):
                 buttons = paginate_help(0, dugmeler, "helpme")
-                text = f"Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 8.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** @{BOT_USERNAME} "
+                text = f"Dɪᴏʀ Usᴇʀʙᴏᴛ...​\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 8.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** {BOT_USERNAME} "
                 await event.edit(text,
                                  file=diorlogo,
                                  buttons=buttons,
@@ -599,7 +599,7 @@ with bot:
                                  )
 
             else:
-                reply_pop_up_alert = f"❌ WARNINGS ❌\n\nAnda Tidak Diizinkan Untuk Menekan Tombol Ini."
+                reply_pop_up_alert = f"❌ WARNINGS ❌\n\nLo ga di izinin neken ini!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -654,10 +654,10 @@ with bot:
                     file=diorlogo,
                     link_preview=True,
                     buttons=[
-                        [custom.Button.inline("ᴀʟɪᴠᴇ", data="alive")],
-                        [custom.Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ", data="permirt")],
-                        [custom.Button.inline("ᴘᴍʙᴏᴛ", data="pmbot")],
-                        [custom.Button.inline(
+                        [custom.Button.inline("ᴀʟɪᴠᴇ", data="alive")
+                         custom.Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ", data="permirt")],
+                        [custom.Button.inline("ᴘᴍʙᴏᴛ", data="pmbot")
+                         custom.Button.inline(
                             "ɪɴʟɪɴᴇ ᴍᴏᴅᴇ ", data="inline_mode")],
                         [custom.Button.inline("ᴍᴇɴᴜ", data="kanan")],
                     ]
@@ -680,14 +680,14 @@ with bot:
                     file=diorlogo,
                     link_preview=True,
                     buttons=[
-                        [custom.Button.inline("ᴜᴘᴅᴀᴛᴇ", data="pembaruan")],
-                        [custom.Button.inline("ᴘɪɴɢ", data="ping")],
-                        [custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot")],
-                        [custom.Button.inline("<<ʟᴇꜰᴛ", data="settings")],
+                        [custom.Button.inline("ᴜᴘᴅᴀᴛᴇ", data="pembaruan")
+                         custom.Button.inline("ᴘɪɴɢ", data="ping")],
+                        [custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot")
+                         custom.Button.inline("<<ʟᴇꜰᴛ", data="settings")],
                     ]
                 )
             else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Diizinkan Untuk Menekan Tombol Button Ini"
+                reply_pop_up_alert = f"❌ WARNING ❌\n\nLo ga di izinin neken ini!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -700,7 +700,7 @@ with bot:
                 text = (
                     f"Modules Name **Alive**\n\n"
                     f"× `.alive` × `.ralive`\n"
-                    f"°__Menampilkan Alive Punya Kamu__.\n\n"
+                    f"°__Menampilkan Alive bot mu__.\n\n"
                     f"× `.set var ALIVE_LOGO` [**LINK**]\n"
                     f"°__Mengubah Foto Alive Kamu, Yang Kamu Inginkan__.\n\n"
                     f"© @uurfavboys")
@@ -747,7 +747,7 @@ with bot:
                     ]
                 )
             else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Diizinkan Untuk Menekan Tombol Ini"
+                reply_pop_up_alert = f"❌ WARNING ❌\n\nLo ga di izinin neken ini!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -777,7 +777,7 @@ with bot:
                     ]
                 )
             else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Diizinkan Untuk Menekan Tombol Ini"
+                reply_pop_up_alert = f"❌ WARNING ❌\n\nLo ga di izinin neken ini!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -805,7 +805,7 @@ with bot:
                     ]
                 )
             else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Diizinkan Untuk Menekan Tombol Ini"
+                reply_pop_up_alert = f"❌ WARNING ❌\n\nLo ga di izinin neken ini!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -835,7 +835,7 @@ with bot:
                     ]
                 )
             else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
+                reply_pop_up_alert = f"❌ WARNING ❌\n\nLo ga di izinin neken ini!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @ tgbot.on(
@@ -898,7 +898,7 @@ with bot:
                     ]
                 )
             else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Diizinkan Untuk Menekan Tombol Ini"
+                reply_pop_up_alert = f"❌ WARNING ❌\n\nLo ga di izinin neken ini!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @ tgbot.on(
@@ -952,7 +952,7 @@ with bot:
                 result = builder.photo(
                     file=diorlogo,
                     link_preview=False,
-                    text=f"Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 8.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** @{BOT_USERNAME}".format(
+                    text=f"Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 8.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** {BOT_USERNAME}".format(
                         len(dugmeler),
                     ),
                     buttons=buttons,
@@ -998,7 +998,7 @@ with bot:
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar gw gban!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @ tgbot.on(
@@ -1047,7 +1047,7 @@ with bot:
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar gw gban!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @ tgbot.on(
@@ -1079,7 +1079,7 @@ with bot:
                     )
                 )
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar gw gban!"
 
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
