@@ -1,5 +1,5 @@
 """ Userbot initialization. """
-## Recode by dior itu fathur
+## Recode by dior itu fatur
 
 import logging
 import os
@@ -948,8 +948,8 @@ with bot:
                     link_preview=True,
                     buttons=[
                         [
-                            Button.url("ɢʀᴏᴜᴘ​"t.me/fandasupport"),
-                            Button.url("ᴄʜᴀɴɴᴇʟ"t.me/fandaproject")],
+                            Button.url("ɢʀᴏᴜᴘ​",t.me/fandasupport"),
+                            Button.url("ᴄʜᴀɴɴᴇʟ",t.me/fandaproject")],
                     ]
                 )
 
