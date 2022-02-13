@@ -654,20 +654,20 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                text = (
-                    f"{START_WELCOME}\n\n**Powered By** : @uurfavboys")
-                await event.edit(
-                    text,
-                    file=diorlogo,
-                    link_preview=True,
+            if event.message.from_id != uid:
+                await event.client.get_entity(event.chat_id)
+                await event.reply(
+                    f"{START_WELCOME}\n\n**Powered By** : @uurfavboys\n\n",
                     buttons=[
                         [
-                         custom.Button.inline("ꜱᴇᴛᴛɪɴɢꜱ", data="settings"),
-                         custom.Button.inline("ɪɴꜰᴏ", data="about"),
-                         custom.Button.inline("ᴍᴇɴᴜ", data="kanan")],
+                            custom.Button.inline(
+                                "ꜱᴇᴛᴛɪɴɢꜱ", data="settings"),
+                            custom.Button.inline(
+                                "ɪɴꜰᴏ", data="about"),
+                            custom.Button.inline(
+                                "ᴍᴇɴᴜ", data="kanan")],
                         [
-                         custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed")],
+                            custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed")],
                     ]
                 )
             else:
