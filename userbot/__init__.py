@@ -566,8 +566,11 @@ with bot:
                             custom.Button.inline(
                                 "ꜱᴇᴛᴛɪɴɢꜱ", data="settings"),
                             custom.Button.inline(
-                                "ɪɴꜰᴏ", data="about")],
-                        [custom.Button.inline("ᴍᴇɴᴜ", data="kanan")],
+                                "ɪɴꜰᴏ", data="about"),
+                            custom.Button.inline(
+                                "ᴍᴇɴᴜ", data="kanan")],
+                        [
+                            custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed")],
                     ]
                 )
             else:
@@ -644,6 +647,35 @@ with bot:
             else:
                 reply_pop_up_alert = f"Name : {DEFAULTUSER}\nBot Ver : 8.0\n🛠 Modules : {len(plugins)}\nBranch : DIOR-UBOT"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        
+       @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"ulang")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid:
+                text = (
+                    f"{START_WELCOME}\n\n**Powered By** : @uurfavboys")
+                await event.edit(
+                    text,
+                    file=diorlogo,
+                    link_preview=True,
+                    buttons=[
+                        [
+                            custom.Button.inline(
+                                "ꜱᴇᴛᴛɪɴɢꜱ", data="settings"),
+                            custom.Button.inline(
+                                "ɪɴꜰᴏ", data="about"),
+                            custom.Button.inline(
+                                "ᴍᴇɴᴜ", data="kanan")],
+                        [
+                            custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed")],
+                    ]
+                )
+            else:
+                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Diizinkan Untuk Menekan Tombol Ini"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -653,18 +685,20 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 text = (
-                    f"{DEFAULTUSER}Pilih dari opsi di bawah ini :")
+                    f"{DEFAULTUSER} Pilih dari opsi di bawah ini :")
                 await event.edit(
                     text,
                     file=diorlogo,
                     link_preview=True,
                     buttons=[
-                        [custom.Button.inline("ᴀʟɪᴠᴇ", data="alive")],
-                        [custom.Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ", data="permirt")],
-                        [custom.Button.inline("ᴘᴍʙᴏᴛ", data="pmbot")],
-                        [custom.Button.inline(
-                            "ɪɴʟɪɴᴇ ᴍᴏᴅᴇ ", data="inline_mode")],
-                        [custom.Button.inline("ᴍᴇɴᴜ", data="kanan")],
+                        [
+                               custom.Button.inline("ᴀʟɪᴠᴇ", data="alive"),
+                               custom.Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ", data="permirt")],
+                        [
+                               custom.Button.inline("ᴘᴍʙᴏᴛ", data="pmbot"),
+                               custom.Button.inline("ɪɴʟɪɴᴇ ᴍᴏᴅᴇ", data="inline_mode")],
+
+                        [custom.Button.inline("ʙᴀᴄᴋ​", data="ulang")],
                     ]
                 )
             else:
@@ -687,10 +721,10 @@ with bot:
                     buttons=[
                       [
                              custom.Button.inline("ᴜᴘᴅᴀᴛᴇ", data="pembaruan"),
-                             custom.Button.inline("ᴘɪɴɢ", data="ping")],
+                             custom.Button.inline("ᴘɪɴɢ", data="ping"),
+                             custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot")],
                       [
-                             custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot"),
-                             custom.Button.inline("<<ʟᴇꜰᴛ", data="settings")],
+                             custom.Button.inline("ʙᴀᴄᴋ​", data="ulang")],
                     ]
                 )
             else:
@@ -737,7 +771,7 @@ with bot:
                 text = (
                     f"Modules Name **pmpermit**\n\n"
                     f"× `.set var PM_AUTO_BAN True`\n"
-                    f"°__Mengaktifkan Pmpermit Kalian Atau Disebut Pesan Otomatis__.\n\n"
+                    f"°__Mengaktifkan Pmpermit Kalian Atau Pesan Otomatis Room Chat__.\n\n"
                     f"× `.set pm_msg` [**REPLYCHAT**]\n"
                     f"°__Mengganti Teks Pmpermit Kamu__.\n\n"
                     f"© @uurfavboys")
@@ -943,8 +977,8 @@ with bot:
                     link_preview=True,
                     buttons=[
                         [
-                            Button.url("ᴄʜᴀɴɴᴇʟ",
-                                       "t.me/fandaproject")],
+                            Button.url("ɢʀᴏᴜᴘ​"t.me/fandasupport"),
+                            Button.url("ᴄʜᴀɴɴᴇʟ"t.me/fandaproject")],
                     ]
                 )
 
