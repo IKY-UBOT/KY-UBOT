@@ -568,7 +568,7 @@ with bot:
                             custom.Button.inline(
                                 "ɪɴꜰᴏ", data="about"),
                             custom.Button.inline(
-                                "ᴍᴇɴᴜ", data="kanan")],
+                                "ᴍᴇɴᴜ", data="menu")],
                         [
                             custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed")],
                     ]
@@ -648,32 +648,6 @@ with bot:
                 reply_pop_up_alert = f"Name : {DEFAULTUSER}\nBot Ver : 8.0\n🛠 Modules : {len(plugins)}\nBranch : DIOR-UBOT"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         
-       @tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"ulang")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.message.from_id != uid:
-                await event.client.get_entity(event.chat_id)
-                await event.reply(
-                    f"{START_WELCOME}\n\n**Powered By** : @uurfavboys\n\n",
-                    buttons=[
-                        [
-                            custom.Button.inline(
-                                "ꜱᴇᴛᴛɪɴɢꜱ", data="settings"),
-                            custom.Button.inline(
-                                "ɪɴꜰᴏ", data="about"),
-                            custom.Button.inline(
-                                "ᴍᴇɴᴜ", data="kanan")],
-                        [
-                            custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed")],
-                    ]
-                )
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Diizinkan Untuk Menekan Tombol Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"settings")
@@ -694,8 +668,8 @@ with bot:
                         [
                          custom.Button.inline("ᴘᴍʙᴏᴛ", data="pmbot"),
                          custom.Button.inline("ɪɴʟɪɴᴇ ᴍᴏᴅᴇ", data="inline_mode")],
-
-                        [custom.Button.inline("ʙᴀᴄᴋ​", data="ulang")],
+                        [
+                         custom.Button.inline(""ᴍᴇɴᴜ", data="menu")],
                     ]
                 )
             else:
@@ -704,7 +678,7 @@ with bot:
 
         @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"kanan")
+                data=re.compile(rb"menu")
             )
         )
         async def on_plug_in_callback_query_handler(event):
@@ -721,7 +695,7 @@ with bot:
                        custom.Button.inline("ᴘɪɴɢ", data="ping"),
                        custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot")],
                       [
-                       custom.Button.inline("ʙᴀᴄᴋ​", data="ulang")],
+                       custom.Button.inline("ʙᴀᴄᴋ​", data="settings")],
                     ]
                 )
             else:
