@@ -663,14 +663,11 @@ with bot:
                     link_preview=True,
                     buttons=[
                         [
-                            custom.Button.inline(
-                                "ꜱᴇᴛᴛɪɴɢꜱ", data="settings"),
-                            custom.Button.inline(
-                                "ɪɴꜰᴏ", data="about"),
-                            custom.Button.inline(
-                                "ᴍᴇɴᴜ", data="kanan")],
+                         custom.Button.inline("ꜱᴇᴛᴛɪɴɢꜱ", data="settings"),
+                         custom.Button.inline("ɪɴꜰᴏ", data="about"),
+                         custom.Button.inline("ᴍᴇɴᴜ", data="kanan")],
                         [
-                            custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed")],
+                         custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed")],
                     ]
                 )
             else:
@@ -692,11 +689,11 @@ with bot:
                     link_preview=True,
                     buttons=[
                         [
-                               custom.Button.inline("ᴀʟɪᴠᴇ", data="alive"),
-                               custom.Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ", data="permirt")],
+                         custom.Button.inline("ᴀʟɪᴠᴇ", data="alive"),
+                         custom.Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ", data="permit")],
                         [
-                               custom.Button.inline("ᴘᴍʙᴏᴛ", data="pmbot"),
-                               custom.Button.inline("ɪɴʟɪɴᴇ ᴍᴏᴅᴇ", data="inline_mode")],
+                         custom.Button.inline("ᴘᴍʙᴏᴛ", data="pmbot"),
+                         custom.Button.inline("ɪɴʟɪɴᴇ ᴍᴏᴅᴇ", data="inline_mode")],
 
                         [custom.Button.inline("ʙᴀᴄᴋ​", data="ulang")],
                     ]
@@ -720,11 +717,11 @@ with bot:
                     link_preview=True,
                     buttons=[
                       [
-                             custom.Button.inline("ᴜᴘᴅᴀᴛᴇ", data="pembaruan"),
-                             custom.Button.inline("ᴘɪɴɢ", data="ping"),
-                             custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot")],
+                       custom.Button.inline("ᴜᴘᴅᴀᴛᴇ", data="pembaruan"),
+                       custom.Button.inline("ᴘɪɴɢ", data="ping"),
+                       custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot")],
                       [
-                             custom.Button.inline("ʙᴀᴄᴋ​", data="ulang")],
+                       custom.Button.inline("ʙᴀᴄᴋ​", data="ulang")],
                     ]
                 )
             else:
@@ -763,7 +760,7 @@ with bot:
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"permirt")
+                data=re.compile(rb"permit")
             )
         )
         async def on_plug_in_callback_query_handler(event):
