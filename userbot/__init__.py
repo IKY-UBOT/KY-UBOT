@@ -250,7 +250,7 @@ OWNER_BOT = os.environ.get(
 # Default emoji help
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✰"
 
-# °Kyy-Userbot°
+# °Dior-Userbot°
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/aboutdiorz"
 
 
@@ -535,16 +535,21 @@ with bot:
                 u = await event.client.get_entity(event.chat_id)
                 c = await event.client.get_entity(event.user_id)
                 await event.reply(
-                    f"**Hallo Kamu**\n**Welcome To** [{get_display_name(u)}](tg://user?id={u.id}) \n\n"
-                    f"✥ **ᴘᴇɴɢɢᴜɴᴀ​ :** {get_display_name(c)} \n"
-                    f"✥ **ɪᴅ ᴘᴇɴɢɢᴜɴᴀ​ :** {c.id} \n"
+                    f"**Welcome To** [{get_display_name(u)}](tg://user?id={u.id}) \n\n"
+                    f"✥ **ɴᴀᴍᴇ​​ :** {get_display_name(c)} \n"
+                    f"✥ **ᴜsᴇʀ ɪᴅ​ :** {c.id} \n"
                     f"✥ **ᴜsᴇʀɴᴀᴍᴇ​ :** @{c.username} \n"
                     f"✥ **ᴍᴇɴᴛɪᴏɴ​ :** [{get_display_name(c)}](tg://user?id={c.id}) \n\n"
                     f"sᴇᴍᴏɢᴀ ʙᴇᴛᴀʜ ᴅɪsɪɴɪ ʏᴀ.\n",
                     buttons=[
                         [
-                            Button.url("ʀᴇᴘᴏ​",
+                            Button.url("Repo",
                                        "https://github.com/DIORrios285/DIOR-UBOT")],
+                        [
+                            Button.url("Support GC",
+                                       "https://t.me/fandasupport"),
+                            Button.url("Support CH",
+                                       "https://t.me/fandaproject")],
                     ]
                 )
 
@@ -680,10 +685,12 @@ with bot:
                     file=diorlogo,
                     link_preview=True,
                     buttons=[
-                        [custom.Button.inline("ᴜᴘᴅᴀᴛᴇ", data="pembaruan")],
-                        [custom.Button.inline("ᴘɪɴɢ", data="ping")],
-                        [custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot")],
-                        [custom.Button.inline("<<ʟᴇꜰᴛ", data="settings")],
+                      [
+                             custom.Button.inline("ᴜᴘᴅᴀᴛᴇ", data="pembaruan"),
+                             custom.Button.inline("ᴘɪɴɢ", data="ping")],
+                      [
+                             custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot"),
+                             custom.Button.inline("<<ʟᴇꜰᴛ", data="settings")],
                     ]
                 )
             else:
@@ -952,7 +959,7 @@ with bot:
                 result = builder.photo(
                     file=diorlogo,
                     link_preview=False,
-                    text=f"Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 8.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** {BOT_USERNAME}".format(
+                    text=f"Dɪᴏʀ Usᴇʀʙᴏᴛ\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 8.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** {BOT_USERNAME}".format(
                         len(dugmeler),
                     ),
                     buttons=buttons,
