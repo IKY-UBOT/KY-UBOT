@@ -654,10 +654,10 @@ with bot:
                     file=diorlogo,
                     link_preview=True,
                     buttons=[
-                        [custom.Button.inline("ᴀʟɪᴠᴇ", data="alive")
-                         custom.Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ", data="permirt")],
-                        [custom.Button.inline("ᴘᴍʙᴏᴛ", data="pmbot")
-                         custom.Button.inline(
+                        [custom.Button.inline("ᴀʟɪᴠᴇ", data="alive")],
+                        [custom.Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ", data="permirt")],
+                        [custom.Button.inline("ᴘᴍʙᴏᴛ", data="pmbot")],
+                        [custom.Button.inline(
                             "ɪɴʟɪɴᴇ ᴍᴏᴅᴇ ", data="inline_mode")],
                         [custom.Button.inline("ᴍᴇɴᴜ", data="kanan")],
                     ]
@@ -680,10 +680,10 @@ with bot:
                     file=diorlogo,
                     link_preview=True,
                     buttons=[
-                        [custom.Button.inline("ᴜᴘᴅᴀᴛᴇ", data="pembaruan")
-                         custom.Button.inline("ᴘɪɴɢ", data="ping")],
-                        [custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot")
-                         custom.Button.inline("<<ʟᴇꜰᴛ", data="settings")],
+                        [custom.Button.inline("ᴜᴘᴅᴀᴛᴇ", data="pembaruan")],
+                        [custom.Button.inline("ᴘɪɴɢ", data="ping")],
+                        [custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot")],
+                        [custom.Button.inline("<<ʟᴇꜰᴛ", data="settings")],
                     ]
                 )
             else:
