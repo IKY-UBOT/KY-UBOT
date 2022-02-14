@@ -234,7 +234,11 @@ ALIVE_LOGO = os.environ.get(
 
 # Default .helpme Logo
 INLINE_PIC = os.environ.get(
-    "INLINE_PIC") or "https://telegra.ph/file/68745b79cff0d9303701a.jpg"
+    "INLINE_PIC") or "https://telegra.ph/file/989107fa0301b34449f8d.jpg"
+
+# Deploy succes pict in bot log
+DEPLOY_PICT = os.environ.get(
+    "DEPLOY_PICT") or "https://telegra.ph/file/13f71ecb4851c706674c5.jpg"
 
 # Default .alive Instagram
 IG_ALIVE = os.environ.get("IG_ALIVE") or "https://instagram.com/fatur.285"
