@@ -220,7 +220,7 @@ BITLY_TOKEN = os.environ.get(
 TERM_ALIAS = os.environ.get("TERM_ALIAS", "⚡𝕯𝖎𝖔𝖗-𝖀𝖇𝖔𝖙⚡")
 
 # Bot Version
-BOT_VER = os.environ.get("BOT_VER", "8.0")
+BOT_VER = os.environ.get("BOT_VER", "5.0")
 
 # Default .alive Username
 ALIVE_USERNAME = os.environ.get("ALIVE_USERNAME", None)
@@ -230,11 +230,11 @@ S_PACK_NAME = os.environ.get("S_PACK_NAME", None)
 
 # Default .alive Logo
 ALIVE_LOGO = os.environ.get(
-    "ALIVE_LOGO") or "https://telegra.ph/file/d06eb2897484bacae1491.jpg"
+    "ALIVE_LOGO") or "https://telegra.ph/file/68745b79cff0d9303701a.jpg"
 
 # Default .helpme Logo
 INLINE_PIC = os.environ.get(
-    "INLINE_PIC") or "https://telegra.ph/file/d06eb2897484bacae1491.jpg"
+    "INLINE_PIC") or "https://telegra.ph/file/68745b79cff0d9303701a.jpg"
 
 # Default .alive Instagram
 IG_ALIVE = os.environ.get("IG_ALIVE") or "https://instagram.com/fatur.285"
