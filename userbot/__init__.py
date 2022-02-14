@@ -197,7 +197,8 @@ YOUTUBE_API_KEY = os.environ.get(
 START_WELCOME = os.environ.get("START_WELCOME") or "Welcome to bot assisten"
 
 # For alive message
-ALIVE_MSG = os.environ.get("ALIVE_MSG", none)
+ALIVE_MSG = os.environ.get("ALIVE_MSG", None)
+
 # Untuk Melihat Repo
 REPO_NAME = os.environ.get("REPO_NAME") or "⚡𝕯𝖎𝖔𝖗-𝖀𝖇𝖔𝖙⚡"
 
