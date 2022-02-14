@@ -196,6 +196,8 @@ YOUTUBE_API_KEY = os.environ.get(
 # Untuk Mengubah Pesan Welcome
 START_WELCOME = os.environ.get("START_WELCOME") or "Welcome to bot assisten"
 
+# For alive message
+ALIVE_MSG = os.environ.get("ALIVE_MSG", none)
 # Untuk Melihat Repo
 REPO_NAME = os.environ.get("REPO_NAME") or "⚡𝕯𝖎𝖔𝖗-𝖀𝖇𝖔𝖙⚡"
 
@@ -564,7 +566,7 @@ with bot:
             if event.message.from_id != uid:
                 await event.client.get_entity(event.chat_id)
                 await event.reply(
-                    f"{START_WELCOME}\n\n__**Powered By Dior-Userbot**__\n\n",
+                    f"{START_WELCOME}\n\n**Powered By Dior-Userbot**\n\n",
                     buttons=[
                         [
                             custom.Button.inline(
@@ -603,7 +605,7 @@ with bot:
             if event.query.user_id == uid and query.startswith(
                     "@uurfavboys"):
                 buttons = paginate_help(0, dugmeler, "helpme")
-                text = f"Dɪᴏʀ Usᴇʀʙᴏᴛ...​\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 8.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** {BOT_USERNAME} "
+                text = f"Dɪᴏʀ Usᴇʀʙᴏᴛ...​\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 5.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** {BOT_USERNAME} "
                 await event.edit(text,
                                  file=diorlogo,
                                  buttons=buttons,
@@ -649,7 +651,7 @@ with bot:
                     ]
                 )
             else:
-                reply_pop_up_alert = f"Name : {DEFAULTUSER}\nBot Ver : 8.0\n🛠 Modules : {len(plugins)}\nBranch : DIOR-UBOT"
+                reply_pop_up_alert = f"Name : {DEFAULTUSER}\nBot Ver : 5.0\n🛠 Modules : {len(plugins)}\nBranch : DIOR-UBOT"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         
         @tgbot.on(
@@ -717,6 +719,8 @@ with bot:
                     f"Modules Name **Alive**\n\n"
                     f"× `.alive` × `.ralive`\n"
                     f"°__Menampilkan Alive bot mu__.\n\n"
+                    f"× `.set var ALIVE_MSG` [**TEKS TERSERAH**]\n"
+                    f"°__Mengubah pesan Alive kamu, sesuai apa yang kamu inginkan__.\n\n"
                     f"× `.set var ALIVE_LOGO` [**LINK**]\n"
                     f"°__Mengubah foto Alive kamu, sesuai apa yang kamu inginkan__.\n\n"
                     f"© @fandasupport")
