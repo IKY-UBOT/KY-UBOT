@@ -34,7 +34,7 @@ async def start_voice(td):
         return await td.edit(NO_ADMIN)
     try:
         await td.client(startvc(td.chat_id))
-        await td.edit("`Voice Chat Started...`")
+        await td.edit("• Voice Chat Started...")
     except Exception as ex:
         await td.edit(f"`{str(ex)}`")
 
@@ -49,7 +49,7 @@ async def stop_voice(td):
         return await td.edit(NO_ADMIN)
     try:
         await td.client(stopvc(await get_call(td)))
-        await td.edit("`Voice Chat Stopped...`")
+        await td.edit("• Voice Chat Stopped...")
     except Exception as ex:
         await td.edit(f"`{str(ex)}`")
 
@@ -69,7 +69,7 @@ async def vc_invite(td):
             z += 6
         except BaseException:
             pass
-    await td.edit(f"`Invited {z} users`")
+    await td.edit(f"• Invited {z} users")
 
 
 
