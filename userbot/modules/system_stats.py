@@ -14,7 +14,7 @@ import time
 from datetime import datetime
 import psutil
 
-from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, IG_ALIVE, REPO_NAME, GROUP_LINK, StartTime, bot
+from userbot import ALIVE_LOGO, ALIVE_MSG, ALIVE_NAME, BOT_VER, CMD_HELP, IG_ALIVE, REPO_NAME, GROUP_LINK, StartTime, bot
 from userbot.events import register
 
 
@@ -230,7 +230,7 @@ async def amireallyalive(alive):
     await asyncio.sleep(3)
     output = (
         f"**Dior-Userbot is Up and Running...**\n\n"
-        f"**none**\n\n"
+        f"**{ALIVE_MSG}**\n\n"
         f"❍ **Owner** - `{DEFAULTUSER}` \n"
         f"❍ **Branch** - [DIOR-UBOT](https://github.com/DIORrios285/DIOR-UBOT) \n"
         f"❍ **Modules** - `{len(modules)}` \n"
@@ -271,8 +271,22 @@ async def amireallyalive(alive):
         f"✵ **Python** - `{python_version()}` ㅤ\n"
         f"✵ **Dior Userbot** - `{BOT_VER}`           \n"
         f"✵ **Modules** - `{len(modules)}` ㅤ\n\n"
-        f"   [𝗦𝗨𝗣𝗣𝗢𝗥𝗧](t.me/fandasupport) | [𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠](Instagram.com/fatur.285)"
+        f"   [𝗦𝗨𝗣𝗣𝗢𝗥𝗧](t.me/fandasupport) | [𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠]({IG_ALIVE})"
     )
+    if ALIVE_LOGO:
+        try:
+            logo = ALIVE_LOGO
+            await alive.delete()
+            msg = await bot.send_file(alive.chat_id, logo, caption=output)
+            await asyncio.sleep(50)
+            await msg.delete()
+        except BaseException:
+            await alive.edit(
+                output + "\n\n *`Logo Yang Disediakan Tidak Valid."
+                "\nPastikan Tautan Yang Anda Gunakan Valid`"
+            )
+            await asyncio.sleep(100)
+            await alive.delete()
     else:
         await alive.edit(output)
         await asyncio.sleep(100)
