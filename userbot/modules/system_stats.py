@@ -219,13 +219,10 @@ async def pipcheck(pip):
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
-    await alive.edit("__Reconnect....__")
     await alive.edit("__Reconnect...__")
     await alive.edit("__Reconnect..__")
     await alive.edit("__Reconnect.__")
     await asyncio.sleep(1)
-    await alive.edit("__Connecting..__")
-    await alive.edit("__Connecting...__")
     await alive.edit("**DIOR GANTENG**")
     await alive.edit("__Connecting.__")
     await alive.edit("__Connecting..__")
@@ -234,7 +231,7 @@ async def amireallyalive(alive):
     await alive.edit("⚡")
     await asyncio.sleep(3)
     output = (
-        f"❖ **[DIOR-UBOT](https://github.com/DIORrios285/DIOR-UBOT)** __is Up and Running.__\n"
+        f"⚡ __**DIOR-UBOT** is Up and Running.__\n"
         f"╭┈────────────••───────━\n"
         f"││❍ **Bot of :** {DEFAULTUSER} \n"
         f"││❍ **Modules :** {len(modules)} \n"
@@ -281,7 +278,7 @@ async def amireallyalive(alive):
     )
     if ALIVE_LOGO:
         try:
-            logo = ALIVE_LOGO
+            logo = false
             await alive.delete()
             msg = await bot.send_file(alive.chat_id, logo, caption=output)
             await asyncio.sleep(50)
@@ -316,7 +313,7 @@ async def amireallyaliveuser(username):
 async def amireallyalivereset(ureset):
     global DEFAULTUSER
     DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-    await ureset.edit("`" "Berhasil mengatur ulang pengguna untuk hidup!" "`")
+    await ureset.edit("`" "Berhasil mengatur ulang pengguna untuk alive!" "`")
 
 
 CMD_HELP.update({
