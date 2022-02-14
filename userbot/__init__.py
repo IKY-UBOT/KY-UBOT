@@ -172,7 +172,7 @@ PM_LOGGR_BOT_API_ID = int(os.environ.get("PM_LOGGR_BOT_API_ID", "-100"))
 # OpenWeatherMap API Key
 OPEN_WEATHER_MAP_APPID = os.environ.get(
     "OPEN_WEATHER_MAP_APPID") or "5ed2fcba931692ec6bd0a8a3f8d84936"
-WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", "Batam")
+WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", "Tarakan")
 
 
 # Lydia API
@@ -194,7 +194,7 @@ YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
 # Untuk Mengubah Pesan Welcome
-START_WELCOME = os.environ.get("START_WELCOME", None)
+START_WELCOME = os.environ.get("START_WELCOME") or "Welcome to bot assisten"
 
 # Untuk Melihat Repo
 REPO_NAME = os.environ.get("REPO_NAME") or "⚡𝕯𝖎𝖔𝖗-𝖀𝖇𝖔𝖙⚡"
@@ -237,7 +237,7 @@ INLINE_PIC = os.environ.get(
     "INLINE_PIC") or "https://telegra.ph/file/d06eb2897484bacae1491.jpg"
 
 # Default .alive Instagram
-IG_ALIVE = os.environ.get("IG_ALIVE") or "instagram.com/fatur.285"
+IG_ALIVE = os.environ.get("IG_ALIVE") or "https://instagram.com/fatur.285"
 
 # Default .alive Group
 GROUP_LINK = os.environ.get(
@@ -248,10 +248,10 @@ OWNER_BOT = os.environ.get(
     "OWNER_BOT") or "t.me/uurfavboys"
 
 # Default emoji help
-EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✰"
+EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✪"
 
 # °Dior-Userbot°
-OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/aboutdiorz"
+OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/uurfavboys"
 
 
 # Last.fm Module
@@ -520,7 +520,7 @@ with bot:
                     )
             except Exception:
                 return await event.edit(
-                    "⛔ **Lo ga di izinin neken ini**!"
+                    "`Lo ga bisa menggunakan inline mode di grup ini!, au dah gw juga ga tau kenapa owner nyuruh gini`"
                 )
 
         diorlogo = INLINE_PIC
@@ -560,7 +560,7 @@ with bot:
             if event.message.from_id != uid:
                 await event.client.get_entity(event.chat_id)
                 await event.reply(
-                    f"{START_WELCOME}\n\n**Powered By** : @uurfavboys\n\n",
+                    f"{START_WELCOME}\n\n__**Powered By Dior-Userbot**__\n\n",
                     buttons=[
                         [
                             custom.Button.inline(
@@ -574,7 +574,7 @@ with bot:
                     ]
                 )
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar Gw Gban!"
+                reply_pop_up_alert = f"🚫WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar Gw Gban!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.NewMessage(pattern="/ping"))
@@ -585,7 +585,7 @@ with bot:
                 ms = (end - start).microseconds / 1000
                 await tgbot.send_message(
                     event.chat_id,
-                    f"**PONG!!**\n `{ms}ms`",
+                    f"**PONG!!** 🏓\n `{ms}ms`",
                 )
 
         @tgbot.on(
@@ -607,7 +607,7 @@ with bot:
                                  )
 
             else:
-                reply_pop_up_alert = f"❌ WARNINGS ❌\n\nLo ga di izinin neken ini!"
+                reply_pop_up_alert = f"❌ WARNING ❌\n\nLo ga di izinin neken ini!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -632,10 +632,10 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 text = (
-                    f"❁ __Saya Adalah Dior Userbot Yang Digunakan Banyak User Telegram__.\n\n"
-                    f"❁ __Saya Dibuat Hanya Untuk Bersenang Senang Ditelegram__.\n\n"
-                    f"❁ __Kelebihan Saya Banyak, Saya Mempunyai 100 lebih Modules__.\n\n"
-                    f"© @uurfavboys")
+                    f"❁ __Gw adalah Dior-Userbot yang digunakan banyak pengguna Telegram__.\n\n"
+                    f"❁ __Gw dibuat hanya untuk bersenang-senang__.\n\n"
+                    f"❁ __Gw mempunyai 100 lebih modules yang bisa lu pake buat ngapain ae serah lu__.\n\n"
+                    f"© @fandasupport")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -656,7 +656,7 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 text = (
-                    f"{DEFAULTUSER} Pilih dari opsi di bawah ini :")
+                    f"{DEFAULTUSER} **Pilih opsi di bawah ini:**")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -684,7 +684,7 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 text = (
-                    f"Menu Lainnya ! Untuk {DEFAULTUSER}")
+                    f"Menu lainnya untuk **{DEFAULTUSER}**")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -714,8 +714,8 @@ with bot:
                     f"× `.alive` × `.ralive`\n"
                     f"°__Menampilkan Alive bot mu__.\n\n"
                     f"× `.set var ALIVE_LOGO` [**LINK**]\n"
-                    f"°__Mengubah Foto Alive Kamu, Yang Kamu Inginkan__.\n\n"
-                    f"© @uurfavboys")
+                    f"°__Mengubah foto Alive kamu, sesuai apa yang kamu inginkan__.\n\n"
+                    f"© @fandasupport")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -742,10 +742,10 @@ with bot:
                 text = (
                     f"Modules Name **pmpermit**\n\n"
                     f"× `.set var PM_AUTO_BAN True`\n"
-                    f"°__Mengaktifkan Pmpermit Kalian Atau Pesan Otomatis Room Chat__.\n\n"
+                    f"°__Mengaktifkan Pmpermit atau pesan otomatis Room Chat__.\n\n"
                     f"× `.set pm_msg` [**REPLYCHAT**]\n"
-                    f"°__Mengganti Teks Pmpermit Kamu__.\n\n"
-                    f"© @uurfavboys")
+                    f"°__Mengganti teks Pmpermit kamu__.\n\n"
+                    f"© @fandasupport")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -772,10 +772,10 @@ with bot:
                 text = (
                     f"Modules Name **inline**\n\n"
                     f"× `.set var EMOJI_HELP` [**EMOJI**]\n"
-                    f"°__Mengubah Emoji Inline Yang Ada Di Perintah__ `.helpme`\n\n"
+                    f"°__Mengubah emoji help di perintah__ `.helpme`\n\n"
                     f"× `.set var INLINE_PIC` [**LINK**]\n"
-                    f"°__Mengubah Foto Yang Ada Di Perintah__ `.helpme`\n\n"
-                    f"© @uurfavboys")
+                    f"°__Mengubah inline pict atau logo__ `.helpme`\n\n"
+                    f"© @fandasupport")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -802,8 +802,8 @@ with bot:
                 text = (
                     f"Modules Name **pmbot**\n\n"
                     f"× `.set var START_WELCOME` [**TEKS**] \n"
-                    f"°__Kamu Juga Bisa Mengubah Start Welcome Untuk Bot Ini, Dengan Cara Diatas Dan Kata Kata Bebas__.\n\n"
-                    f"© @uurfavboys")
+                    f"°__Mengubah welcome message yang ada di start message assisten kamu__.\n\n"
+                    f"© @fandasupport")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -829,11 +829,11 @@ with bot:
             if event.query.user_id == uid:
                 text = (
                     f"Modules Name **Pembaruan**\n\n"
-                    f"× **Pembaruan Data Untuk DIOR - UBOT, Command Untuk Pembaruan**.\n"
-                    f"⚒Pembaruan Data :\n"
+                    f"× **Perintah untuk melihat pembaruan dan memperbarui DIOR - UBOT.**\n"
+                    f"⚒ Pembaruan Data:\n"
                     f"`.update deploy`\n"
-                    f"`update`\n\n"
-                    f"© @uurfavboys")
+                    f"`.update one`\n\n"
+                    f"© @fandasupport")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -861,7 +861,7 @@ with bot:
                 end = datetime.now()
                 ms = (end - start).microseconds / 1000
                 text = (
-                    f"**PONG!!**\n `{ms}ms`")
+                    f"**PONG!!** 🏓\n `{ms}ms`")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -887,7 +887,7 @@ with bot:
                 AppPercentage = math.floor(
                     apps.get('quota_used') * 100 / quota)
                 text = (
-                    "**ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
+                    "**ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ:**\n"
                     "╔════════════════════╗\n"
                     f" ☂ **ᴘᴇɴɢɢᴜɴᴀ ᴅʏɴᴏ sᴀᴀᴛ ɪɴɪ :**\n"
                     f"  ➽  `{AppHours}`**ᴊᴀᴍ**  `{AppMinutes}`**ᴍᴇɴɪᴛ**  "
@@ -898,7 +898,7 @@ with bot:
                     f"**|**  [`{percentage}`**%**]\n"
                     f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
                     "\n╚════════════════════╝"
-                    f"© @uurfavboys")
+                    f"© @fandasupport")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -921,7 +921,7 @@ with bot:
         async def killdabot(event):
             if event.query.user_id == uid:
                 text = (
-                    f"**Restaring DIOR-UBOT**...")
+                    f"**Restaring DIOR-UBOT...**")
                 await event.edit(
                     text,
                     file=diorlogo,
@@ -1014,7 +1014,7 @@ with bot:
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar gw gban!"
+                reply_pop_up_alert = f"🚫WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar gw gban!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @ tgbot.on(
@@ -1063,7 +1063,7 @@ with bot:
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar gw gban!"
+                reply_pop_up_alert = f"🚫WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar gw gban!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @ tgbot.on(
@@ -1095,7 +1095,7 @@ with bot:
                     )
                 )
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar gw gban!"
+                reply_pop_up_alert = f"🚫WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Tar gw gban!"
 
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
