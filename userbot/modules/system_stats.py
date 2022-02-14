@@ -221,26 +221,23 @@ async def amireallyalive(alive):
     await get_readable_time((time.time() - StartTime))
     await alive.edit("__Reconnect...__")
     await alive.edit("__Reconnect..__")
-    await alive.edit("__Reconnect.__")
-    await asyncio.sleep(1)
     await alive.edit("**DIOR GANTENG**")
     await alive.edit("__Connecting.__")
     await alive.edit("__Connecting..__")
     await alive.edit("**Connected ✅**")
-    await asyncio.sleep(2)
+    await asyncio.sleep(1)
     await alive.edit("⚡")
     await asyncio.sleep(3)
     output = (
-        f"⚡ __**DIOR-UBOT** is Up and Running.__\n"
-        f"╭┈────────────••───────━\n"
-        f"││❍ **Bot of :** {DEFAULTUSER} \n"
-        f"││❍ **Modules :** {len(modules)} \n"
-        f"││❍ **Bot Version :** v{BOT_VER} \n"
-        f"││❍ **Python Version :** v{python_version()} \n"
-        f"││❍ **Telethon Version :** v{version.__version__} \n"
-        f"╰┈───────••────────────━\n"
-        f"       [𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/fandasupport) | [𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/fandaproject) | [𝗢𝘄𝗻𝗲𝗿](https://t.me/uurfavboys)"
-    )
+        f"**Dior-Userbot is Up and Running...**\n\n"
+        f"**none**\n\n"
+        f"❍ **Owner** - `{DEFAULTUSER}` \n"
+        f"❍ **Branch** - [DIOR-UBOT](https://github.com/DIORrios285/DIOR-UBOT) \n"
+        f"❍ **Modules** - `{len(modules)}` \n"
+        f"❍ **Dior-Userbot** - `{BOT_VER}` \n"
+        f"❍ **Python** - `{python_version()}` \n"
+        f"❍ **Telethon** - `{version.__version__}`"
+     )
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -265,31 +262,17 @@ async def amireallyalive(alive):
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
-    await alive.edit("__Introducing the repo...__")
+    await alive.edit("**Introducing the repo...**")
     output = (
-        f"   **Userbot powered by FANDA-PROJECT** \n\n"
-        f"❒ **ᴏᴡɴᴇʀ   :** [Owner](https://t.me/uurfavboys1)    \n"
-        f"❒ **ꜱʏꜱᴛᴇᴍ  :** `Android 10`   \n"
-        f"❒ **ᴛᴇʟᴇᴛʜᴏɴ :** `v{version.__version__}`   \n"
-        f"❒ **ᴘʏᴛʜᴏɴ  :** `v{python_version()}` ㅤ\n"
-        f"❒ **ʙᴏᴛ ᴠᴇʀ :** `v{BOT_VER}`           \n"
-        f"❒ **ᴍᴏᴅᴜʟᴇ  :** `{len(modules)}` ㅤ\n\n"
-        f"   [𝗥𝗘𝗣𝗢](https://github.com/DIORrios285/DIOR-UBOT) | [𝗦𝗨𝗣𝗣𝗢𝗥𝗧](t.me/fandasupport) | [𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠](Instagram.com/fatur.285)"
+        f"**Dior-Userbot powered by FANDA-PROJECT** \n\n"
+        f"✵ **Owner** - [Dior/Fatur](https://t.me/uurfavboys)    \n"
+        f"✵ **System** - `Android 10`   \n"
+        f"✵ **Telethon** - `{version.__version__}`   \n"
+        f"✵ **Python** - `{python_version()}` ㅤ\n"
+        f"✵ **Dior Userbot** - `{BOT_VER}`           \n"
+        f"✵ **Modules** - `{len(modules)}` ㅤ\n\n"
+        f"   [𝗦𝗨𝗣𝗣𝗢𝗥𝗧](t.me/fandasupport) | [𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠](Instagram.com/fatur.285)"
     )
-    if ALIVE_LOGO:
-        try:
-            logo = false
-            await alive.delete()
-            msg = await bot.send_file(alive.chat_id, logo, caption=output)
-            await asyncio.sleep(50)
-            await msg.delete()
-        except BaseException:
-            await alive.edit(
-                output + "\n\n *`Logo yang diberikan tidak valid."
-                "\nPastikan link diarahkan ke gambar logo`"
-            )
-            await asyncio.sleep(100)
-            await alive.delete()
     else:
         await alive.edit(output)
         await asyncio.sleep(100)
