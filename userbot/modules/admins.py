@@ -36,8 +36,8 @@ from userbot.events import register
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "`Kecil amat gambar nya`"
 PP_ERROR = "`Gagal Memproses Gambar`"
-NO_ADMIN = "`Yah lu ga admin bre:(`"
-NO_PERM = "`Sorry bre lu gaada Izin!`"
+NO_ADMIN = "`Lu bukan admin goblok!`"
+NO_PERM = "`Sorry bre lu gaada Izin:(`"
 NO_SQL = "`Berjalan Pada Mode Non-SQL`"
 
 CHAT_PP_CHANGED = "`Berhasil Mengubah Profil Grup ngentot`"
@@ -330,7 +330,7 @@ async def spider(spdr):
 
     if user.id == self_user.id:
         return await spdr.edit(
-            "`Tangan Terlalu Pendek, Tidak Bisa Membisukan Diri Sendiri...\n(ヘ･_･)ヘ┳━┳`"
+            "`Mau bisuin diri sendiri? lu goblok tolol ga pernah sekolah stau memang ga pernah diajarin, mau dipukul?`"
         )
 
     # If everything goes well, do announcing and mute
@@ -343,9 +343,9 @@ async def spider(spdr):
 
             # Announce that the function is done
             if reason:
-                await spdr.edit(f"**Telah Dibisukan!**\n**Alasan:** `{reason}`")
+                await spdr.edit(f"**[{user.first_name}](tg://user?id={user.id}) Telah Dibisukan!**\n**Alasan:** `{reason}`")
             else:
-                await spdr.edit("`Telah Dibisukan!`")
+                await spdr.edit("**Termute kau sial [{user.first_name}](tg://user?id={user.id})**")
 
             # Announce to logging group
             if BOTLOG:
@@ -390,7 +390,7 @@ async def unmoot(unmot):
 
         try:
             await unmot.client(EditBannedRequest(unmot.chat_id, user.id, UNBAN_RIGHTS))
-            await unmot.edit("```Berhasil Melakukan Unmute! Pengguna Sudah Tidak Lagi Dibisukan```")
+            await unmot.edit("**Udah ga di bisuin [{user.first_name}](tg://user?id={user.id})**")
             await sleep(3)
             await unmot.delete()
         except UserIdInvalidError:
@@ -507,9 +507,9 @@ async def gspider(gspdr):
         await gspdr.edit("`Kesalahan! Pengguna Sudah Dibisukan.`")
     else:
         if reason:
-            await gspdr.edit(f"**Dibisukan Secara Global!**\n**Alasan:** `{reason}`")
+            await gspdr.edit(f"**[{user.first_name}](tg://user?id={user.id}) Dibisukan Secara Global!**\n**Alasan:** `{reason}`")
         else:
-            await gspdr.edit("`Berhasil Membisukan Pengguna Secara Global!`")
+            await gspdr.edit("**TerGmute kau sial [{user.first_name}](tg://user?id={user.id})!**")
 
         if BOTLOG:
             await gspdr.client.send_message(
