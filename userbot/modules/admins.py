@@ -33,7 +33,6 @@ from telethon.tl.types import (
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import register
 from userbot.utils import (
-    _format,
     edit_delete,
     get_user_from_event,
     edit_or_reply,
