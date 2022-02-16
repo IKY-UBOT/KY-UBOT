@@ -32,11 +32,6 @@ from telethon.tl.types import (
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import register
-from userbot.utils import (
-    edit_delete,
-    get_user_from_event,
-    edit_or_reply,
-)
 
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "`Kecil amat gambar nya`"
@@ -308,49 +303,6 @@ async def nothanos(unbon):
             )
     except UserIdInvalidError:
         await unbon.edit("`Sepertinya Terjadi Kesalahan!`")
-
-
-@register(outgoing=True, pattern=r"^\.testmute(?: |$)(.*)")
-async def spider(spdr):
-    try:
-        from userbot.modules.sql_helper.spam_mute_sql import mute
-    except AttributeError:
-        return await edit_or_reply(spdr, NO_SQL)
-    chat = await spdr.get_chat()
-    admin = chat.admin_rights
-    creator = chat.creator
-    if not admin and not creator:
-        return await edit_or_reply(spdr, NO_ADMIN)
-    user, reason = await get_user_from_event(spdr)
-    if not user:
-        return
-    self_user = await spdr.client.get_me()
-    if user.id == self_user.id:
-        return await edit_or_reply(
-            spdr, "**Tidak Bisa Membisukan Diri Sendiri..（>﹏<）**"
-        )
-    if mute(spdr.chat_id, user.id) is False:
-        return await edit_delete(spdr, "**ERROR:** `Pengguna Sudah Dibisukan.`")
-    try:
-        await spdr.client(EditBannedRequest(spdr.chat_id, user.id, MUTE_RIGHTS))
-        if reason:
-            await edit_or_reply(
-                spdr,
-                r"\\**#DMute_User**//"
-                f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-                f"**User ID:** `{user.id}`\n"
-                f"**Reason:** `{reason}`",
-            )
-        else:
-            await edit_or_reply(
-                spdr,
-                r"\\**#DMute_User**//"
-                f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-                f"**User ID:** `{user.id}`\n"
-                f"**Action:** `DMute by {ALIVE_NAME}`",
-            )
-    except UserIdInvalidError:
-        return await edit_delete(spdr, "**Terjadi ERROR!**")
 
 
 @register(outgoing=True, pattern=r"^\.mute(?: |$)(.*)")
