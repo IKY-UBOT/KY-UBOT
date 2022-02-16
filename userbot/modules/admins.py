@@ -305,6 +305,58 @@ async def nothanos(unbon):
         await unbon.edit("`Sepertinya Terjadi Kesalahan!`")
 
 
+@register(outgoing=True, pattern=r"^\.testmute(?: |$)(.*)")
+async def spider(spdr):
+    try:
+        from userbot.modules.sql_helper.spam_mute_sql import mute
+    except AttributeError:
+        return await edit_or_reply(spdr, NO_SQL)
+    chat = await spdr.get_chat()
+    admin = chat.admin_rights
+    creator = chat.creator
+    if not admin and not creator:
+        return await edit_or_reply(spdr, NO_ADMIN)
+    user, reason = await get_user_from_event(spdr)
+    if not user:
+        return
+    self_user = await spdr.client.get_me()
+    if user.id == self_user.id:
+        return await edit_or_reply(
+            spdr, "**Tidak Bisa Membisukan Diri Sendiri..（>﹏<）**"
+        )
+    if user.id in DEVS:
+        return await edit_or_reply(spdr, "**Gagal Mute, Dia Adalah Pembuat Saya 🤪**")
+    await edit_or_reply(
+        spdr,
+        r"\\**#Muted_User**//"
+        f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
+        f"**User ID:** `{user.id}`\n"
+        f"**Action:** `Mute by {ALIVE_NAME}`",
+    )
+    if mute(spdr.chat_id, user.id) is False:
+        return await edit_delete(spdr, "**ERROR:** `Pengguna Sudah Dibisukan.`")
+    try:
+        await spdr.client(EditBannedRequest(spdr.chat_id, user.id, MUTE_RIGHTS))
+        if reason:
+            await edit_or_reply(
+                spdr,
+                r"\\**#DMute_User**//"
+                f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
+                f"**User ID:** `{user.id}`\n"
+                f"**Reason:** `{reason}`",
+            )
+        else:
+            await edit_or_reply(
+                spdr,
+                r"\\**#DMute_User**//"
+                f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
+                f"**User ID:** `{user.id}`\n"
+                f"**Action:** `DMute by {ALIVE_NAME}`",
+            )
+    except UserIdInvalidError:
+        return await edit_delete(spdr, "**Terjadi ERROR!**")
+
+
 @register(outgoing=True, pattern=r"^\.mute(?: |$)(.*)")
 async def spider(spdr):
     # Check if the function running under SQL mode
@@ -334,7 +386,7 @@ async def spider(spdr):
         )
 
     # If everything goes well, do announcing and mute
-    await spdr.edit("`Telah Dibisukan!`")
+    await spdr.edit("**TERMUTE KAU SIAL!!**")
     if mute(spdr.chat_id, user.id) is False:
         return await spdr.edit("`Error! Pengguna Sudah Dibisukan.`")
     else:
@@ -343,9 +395,9 @@ async def spider(spdr):
 
             # Announce that the function is done
             if reason:
-                await spdr.edit(f"**[{user.first_name}](tg://user?id={user.id}) Telah Dibisukan!**\n**Alasan:** `{reason}`")
+                await spdr.edit(f"**Telah Dibisukan!**\n**Alasan:** `{reason}`")
             else:
-                await spdr.edit("**Termute kau sial [{user.first_name}](tg://user?id={user.id})**")
+                await spdr.edit("**Termute kau sial!**")
 
             # Announce to logging group
             if BOTLOG:
@@ -390,7 +442,7 @@ async def unmoot(unmot):
 
         try:
             await unmot.client(EditBannedRequest(unmot.chat_id, user.id, UNBAN_RIGHTS))
-            await unmot.edit("**Udah ga di bisuin [{user.first_name}](tg://user?id={user.id})**")
+            await unmot.edit("**Udah ga di bisuin**")
             await sleep(3)
             await unmot.delete()
         except UserIdInvalidError:
@@ -507,9 +559,9 @@ async def gspider(gspdr):
         await gspdr.edit("`Kesalahan! Pengguna Sudah Dibisukan.`")
     else:
         if reason:
-            await gspdr.edit(f"**[{user.first_name}](tg://user?id={user.id}) Dibisukan Secara Global!**\n**Alasan:** `{reason}`")
+            await gspdr.edit(f"**Dibisukan Secara Global!**\n**Alasan:** `{reason}`")
         else:
-            await gspdr.edit("**TerGmute kau sial [{user.first_name}](tg://user?id={user.id})!**")
+            await gspdr.edit("**TerGmute kau sial!!**")
 
         if BOTLOG:
             await gspdr.client.send_message(
