@@ -32,6 +32,12 @@ from telethon.tl.types import (
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import register
+from userbot.utils import (
+    _format,
+    edit_delete,
+    get_user_from_event,
+    edit_or_reply,
+)
 
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "`Kecil amat gambar nya`"
@@ -324,15 +330,6 @@ async def spider(spdr):
         return await edit_or_reply(
             spdr, "**Tidak Bisa Membisukan Diri Sendiri..（>﹏<）**"
         )
-    if user.id in DEVS:
-        return await edit_or_reply(spdr, "**Gagal Mute, Dia Adalah Pembuat Saya 🤪**")
-    await edit_or_reply(
-        spdr,
-        r"\\**#Muted_User**//"
-        f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-        f"**User ID:** `{user.id}`\n"
-        f"**Action:** `Mute by {ALIVE_NAME}`",
-    )
     if mute(spdr.chat_id, user.id) is False:
         return await edit_delete(spdr, "**ERROR:** `Pengguna Sudah Dibisukan.`")
     try:
