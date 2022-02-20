@@ -1,10 +1,11 @@
 from asyncio import sleep
 from telethon.tl.types import ChatBannedRights
 from telethon.tl.functions.channels import EditBannedRequest
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
 from userbot import CMD_HELP
 
-@register(outgoing=True, pattern="^.banall(?: |$)(.*)")
+@dior_cmd(pattern="banall(?: |$)(.*)")
 async def testing(event):
     nikal = await event.get_chat()
     chutiya = await event.client.get_me()
@@ -28,8 +29,8 @@ async def testing(event):
 
 CMD_HELP.update(
     {
-        "bannedall": "Plugin : `cukup`\
-    \n\nSyntax : `.banall`\
+        "bannedall": "Plugin : `banall`\
+    \n\nSyntax : `{cmd}banall`\
     \nUsage : ban all members in 1 cmd"
         }
 )
