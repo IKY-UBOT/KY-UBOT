@@ -1,7 +1,6 @@
 # Random RGB Sticklet by @PhycoNinja13b
 # modified by @UniBorg
 # ported to userbot by @heyworld & thanks to @Xcruzhd2 for Fonts
-# From Mana ya
 
 import io
 import os
@@ -10,10 +9,10 @@ import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterDocument
-from userbot.events import register
+from userbot.utils import dior_cmd
 
 
-@register(outgoing=True, pattern="^.cs(?: |$)(.*)")
+@dior_cmd(pattern="cs(?: |$)(.*)")
 async def sticklet(event):
     R = random.randint(0, 256)
     G = random.randint(0, 256)
