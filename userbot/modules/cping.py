@@ -12,7 +12,6 @@ import redis
 from datetime import datetime
 
 from userbot import (
-    CMD_HELP, 
     DEVS, 
     StartTime,
 )
@@ -57,5 +56,5 @@ async def get_readable_time(seconds: int) -> str:
 
 
 @register(incoming=True, from_users=DEVS, pattern=r"^.cping$")
-async def _(rendy):
-    await rendy.reply(random.choice(cping))
+async def _(hhh):
+    await hhh.reply(random.choice(cping))
