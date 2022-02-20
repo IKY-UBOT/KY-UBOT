@@ -14,8 +14,8 @@ from userbot import (
     ANTI_SPAMBOT,
     ANTI_SPAMBOT_SHOUT,
     BOTLOG,
+    CMD_HELP
     BOTLOG_CHATID,
-    CMD_HELP,
     bot,
 )
 
