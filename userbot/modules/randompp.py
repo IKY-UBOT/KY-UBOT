@@ -13,7 +13,9 @@ from telethon.tl import functions
 import asyncio
 
 
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP
+from userbot.utils import dior_cmd
 
 COLLECTION_STRING = [
 
@@ -108,7 +110,7 @@ async def animepp():
     urllib.request.urlretrieve(fy, "donottouch.jpg")
 
 
-@register(outgoing=True, pattern="^.randompp(?: |$)(.*)")
+@dior_cmd(pattern="randompp(?: |$)(.*)")
 async def main(event):
 
     await event.edit("`Mengubah Foto Profil Anda...`")
@@ -124,3 +126,13 @@ async def main(event):
         os.system("rm -rf donottouch.jpg")
 
         await asyncio.sleep(3600)  # Edit this to your required needs
+
+
+CMD_HELP.update(
+    {
+        "chatbot": f"**Plugin : **`randompp`\
+      \n\n  •  **Syntax :** `{cmd}randompp`\
+      \n  •  **Function :** Untuk membalas chat dengan chatbot AI.\
+      "
+    }
+)
