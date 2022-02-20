@@ -1,11 +1,10 @@
-from userbot.events import register
+# set multi cmd
+
 from userbot import CMD_HELP
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
 
-# Ported By @VckyouuBitch From GeezProject
-# Devoted To GeezProject
-# Gausah kesini ngentot
-
-@register(outgoing=True, pattern=r"^\.(?:dm)\s?(.*)?")
+@dior_cmd(pattern="dm$")
 async def remoteaccess(event):
 
     p = event.pattern_match.group(1)
@@ -35,6 +34,6 @@ async def remoteaccess(event):
 
 CMD_HELP.update(
     {
-        "message": "`.dm`\
+        "message": "`{cmd}dm`\
     \nMengirim Pesan Dengan Jarak Jauh Dengan .dm <username> <pesan>."
     })
