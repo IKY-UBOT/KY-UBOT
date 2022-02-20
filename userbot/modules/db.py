@@ -9,14 +9,14 @@ from platform import uname
 
 
 from userbot import ALIVE_NAME, BOT_VER, is_mongo_alive, is_redis_alive
-from userbot.events import register
+from userbot.utils import dior_cmd
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@register(outgoing=True, pattern="^.db$")
+@dior_cmd(pattern="db$")
 async def amireallydbs(dbs):
     if not is_mongo_alive() and not is_redis_alive():
         db = "Both Mongo and Redis Database seems to be failing!"
