@@ -1,7 +1,10 @@
 # Thanks skyzu
 # Recode By kijuu
+# ported by @fandasupport
 
 from userbot import CMD_HELP
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
 from userbot.events import register
 from userbot.modules.sql_helper.echo_sql import (
     addecho,
@@ -16,7 +19,7 @@ from userbot.utils import edit_delete, edit_or_reply
 from userbot.utils.events import get_user_from_event
 
 
-@register(outgoing=True, pattern=r"^.addecho(?: |$)(.*)")
+@dior_cmd(pattern="addecho(?: |$)(.*)")
 async def echo(event):
     if event.reply_to_msg_id is None:
         return await event.edit("`Balas pesan Pengguna untuk menggemakan pesannya`")
@@ -45,7 +48,7 @@ async def echo(event):
         await edit_or_reply(roseevent, "Berhasil")
 
 
-@register(outgoing=True, pattern=r"^.rmecho(?: |$)(.*)")
+@dior_cmd(pattern="rmecho(?: |$)(.*)")
 async def echo(event):
     if event.reply_to_msg_id is None:
         return await event.edit("Reply to a User's message to echo his messages")
@@ -63,7 +66,7 @@ async def echo(event):
         await event.edit("The user is not activated with echo")
 
 
-@register(outgoing=True, pattern=r"^.delecho(?: |$)(.*)")
+@dior_cmd(pattern="delecho(?: |$)(.*)")
 async def echo(event):
     input_str = event.pattern_match.group(1)
     if input_str:
@@ -93,7 +96,7 @@ async def echo(event):
             await event.edit("Echo telah di hentikan.")
 
 
-@register(outgoing=True, pattern=r"^.echolist(?: |$)(.*)")
+@dior_cmd(pattern="echolist(?: |$)(.*)")
 async def echo(event):  # sourcery no-metrics
     input_str = event.pattern_match.group(1)
     private_chats = ""
@@ -156,7 +159,7 @@ async def samereply(event):
 
 CMD_HELP.update(
     {
-        "echo": "`.addecho` ; `.delecho` ; `.echolist`\
+        "echo": "`{cmd}addecho` ; `{cmd}delecho` ; `{cmd}echolist`\
     \nUsage: Untuk Menambahkan Followers Chat Kamu."
     }
 )
