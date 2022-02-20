@@ -10,6 +10,9 @@ from justwatch import JustWatch
 from telethon import *
 from userbot.events import register
 from userbot import CMD_HELP, bot, TEMP_DOWNLOAD_DIRECTORY, DEFAULT_BIO, ALIVE_NAME
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
+
 from telethon import events
 from telethon.tl import functions
 from urllib.parse import quote
@@ -88,7 +91,7 @@ if 1 == 1:
     client = bot
 
 
-@register(outgoing=True, pattern="^.app(?: |$)(.*)")
+@dior_cmd(pattern="app(?: |$)(.*)")
 async def apk(e):
     try:
         app_name = e.pattern_match.group(1)
@@ -133,7 +136,7 @@ async def apk(e):
         await e.edit("Exception Occured:- " + str(err))
 
 
-@register(outgoing=True, pattern="^.undlt(?: |$)(.*)")
+@dior_cmd(pattern="undelete(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -148,7 +151,7 @@ async def _(event):
         await event.delete()
 
 
-@register(outgoing=True, pattern="^.calc(?: |$)(.*)")
+@dior_cmd(pattern="calc(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -182,7 +185,7 @@ async def _(event):
         await event.edit("use .calc help")
 
 
-@register(outgoing=True, pattern="^.xcd(?: |$)(.*)")
+@dior_cmd(pattern="xcd(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -229,7 +232,7 @@ Year: {}""".format(img, input_str, xkcd_link, safe_title, alt, day, month, year)
         await event.edit("xkcd n.{} not found!".format(xkcd_id))
 
 
-@register(outgoing=True, pattern="^.remove(?: |$)(.*)")
+@dior_cmd(pattern="remove(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -377,7 +380,7 @@ async def ban_user(chat_id, i, rights):
         return False, str(exc)
 
 
-@register(outgoing=True, pattern="^.rnupload(?: |$)(.*)")
+@dior_cmd(pattern="rnupload(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -421,7 +424,7 @@ async def _(event):
         await event.edit("`Mohon Balas Ke Media`")
 
 
-@register(outgoing=True, pattern="^.grab(?: |$)(.*)")
+@dior_cmd(pattern="grab(?: |$)(.*)")
 async def potocmd(event):
     """Gets the profile photos of replied users, channels or chats"""
     id = "".join(event.raw_text.split(maxsplit=2)[1:])
@@ -454,7 +457,7 @@ async def potocmd(event):
             return
 
 
-@register(outgoing=True, pattern="^.res(?: |$)(.*)")
+@dior_cmd(pattern="res(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -487,7 +490,7 @@ async def _(event):
             await event.client.delete_message(chat, event.chat_id, response.message)
 
 
-@register(outgoing=True, pattern="^.clone(?: |$)(.*)")
+@dior_cmd(pattern="clone(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -666,7 +669,7 @@ def get_provider(url):
     return url
 
 
-@register(outgoing=True, pattern="^.watch(?: |$)(.*)")
+@dior_cmd(pattern="watch(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -713,7 +716,7 @@ async def _(event):
 # Modified by :- @kirito6969,@deleteduser420
 
 
-@register(outgoing=True, pattern="^.weeb(?: |$)(.*)")
+@dior_cmd(pattern="weeb(?: |$)(.*)")
 async def weebify(event):
 
     args = event.pattern_match.group(1)
@@ -760,7 +763,7 @@ boldfont = [
     '𝘇']
 
 
-@register(outgoing=True, pattern="^.bold(?: |$)(.*)")
+@dior_cmd(pattern="bold(?: |$)(.*)")
 async def thicc(bolded):
 
     args = bolded.pattern_match.group(1)
@@ -807,7 +810,7 @@ medievalbold = [
     '𝖟']
 
 
-@register(outgoing=True, pattern="^.medibold(?: |$)(.*)")
+@dior_cmd(pattern="medibold(?: |$)(.*)")
 async def mediv(medievalx):
 
     args = medievalx.pattern_match.group(1)
@@ -854,7 +857,7 @@ doublestruckt = [
     '𝕫']
 
 
-@register(outgoing=True, pattern="^.doublestruck(?: |$)(.*)")
+@dior_cmd(pattern="doublestruck(?: |$)(.*)")
 async def doublex(doublestrucktx):
 
     args = doublestrucktx.pattern_match.group(1)
@@ -901,7 +904,7 @@ cursiveboldx = [
     '𝔃']
 
 
-@register(outgoing=True, pattern="^.curbold(?: |$)(.*)")
+@dior_cmd(pattern="curbold(?: |$)(.*)")
 async def cursive2(cursivebolded):
 
     args = cursivebolded.pattern_match.group(1)
@@ -949,7 +952,7 @@ medival2 = [
     '𝔷']
 
 
-@register(outgoing=True, pattern="^.medi(?: |$)(.*)")
+@dior_cmd(pattern="medi(?: |$)(.*)")
 async def medival22(medivallite):
 
     args = medivallite.pattern_match.group(1)
@@ -996,7 +999,7 @@ cursive = [
     '𝓏']
 
 
-@register(outgoing=True, pattern="^.cur(?: |$)(.*)")
+@dior_cmd(pattern="cur(?: |$)(.*)")
 async def xcursive(cursivelite):
 
     args = cursivelite.pattern_match.group(1)
@@ -1014,7 +1017,7 @@ async def xcursive(cursivelite):
     await cursivelite.edit(string)
 
 
-@register(outgoing=True, pattern="^.rclone(?: |$)(.*)")
+@dior_cmd(pattern="rclone(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -1028,43 +1031,41 @@ async def _(event):
 
 CMD_HELP.update({
     "misc":
-    "`.calc`\
-\nPenjelasan: .calc <term1><operator><term2>\nUntuk eg .calc 02*02 Atau 99*99 (Angka Nol Penting) (Minimal Dua Suku Dan Dua Digit).\
-\n\n`.remove`\
-\nPenjelasan: gunakan di grup .remove d atau y atau m atau w atau o atau q atau r.\n(d=AkunTerhapus y=userstatsempty m=userstatsmonth w=userstatsweek o=userstatsoffline q=userstatsonline r=userstatsrecently).\
-\n\n`.xcd`\
+    "`{cmd}calc`\
+\nPenjelasan: {cmd}calc <term1><operator><term2>\nUntuk eg {cmd}calc 02*02 Atau 99*99 (Angka Nol Penting) (Minimal Dua Suku Dan Dua Digit).\
+\n\n`{cmd}remove`\
+\nPenjelasan: gunakan di grup {cmd}remove d atau y atau m atau w atau o atau q atau r.\n(d=AkunTerhapus y=userstatsempty m=userstatsmonth w=userstatsweek o=userstatsoffline q=userstatsonline r=userstatsrecently).\
+\n\n`{cmd}xcd`\
 \nPenjelasan: Ketik xcd <query>.ps:Aku Sangat Bosan:v\
-\n\n`.rnupload` filename.extenstion\
+\n\n`{cmd}rnupload` filename.extenstion\
 \nPenjelasan: Balas Ke Sticker Dan Ketik .rnupload xyz.jpg\
-\n\n`.res`\
+\n\n`{cmd}res`\
 \nPenjelasan: Ketik Username Akun,Channel,Group Atau Bot Bersama .res Dan Check Batasan\
-\n\n`.watch` <movie/tv>\
+\n\n`{cmd}watch` <movie/tv>\
 \nPenjelasan: Mengetahui Detail Tentang Film.\
-\n\n`.weeb` <text>\
+\n\n`{cmd}weeb` <text>\
 \nPenjelasan: Teks Weebify\
-\n\n(`.bold <Teks>`,`.cur <Teks>`,`.curbold <Teks>`,`.medi <Teks>`,`.medibold <Teks>`,`.doublestruck <Teks>`)\
+\n\n(`{cmd}bold <Teks>`,`{cmd}cur <Teks>`,`{cmd}curbold <Teks>`,`{cmd}medi <Teks>`,`{cmd}medibold <Teks>`,`{cmd}doublestruck <Teks>`)\
 \nPenjelasan: Buat Teks <Bold,Cursive,Cursivebold,Medival,Medivalbold,Gayishbold>"})
-# LORD USERBOT
-CMD_HELP.update({"app": "**Modules:** __App__\n\n**Perintah:** `.app <nama app>`"
+# Dior-Userbot
+CMD_HELP.update({"app": "**Modules:** __App__\n\n**Perintah:** `{cmd}app <nama app>`"
                  "\n**Penjelasan:** Dapatkan Detail Informasi Applikasi"})
-# LORD USERBOT
-CMD_HELP.update({"undelete": "**Modules:** __Undelete__\n\n**Perintah:** `.undlt`"
+# Dior-Userbot
+CMD_HELP.update({"undelete": "**Modules:** __Undelete__\n\n**Perintah:** `{cmd}undelete`"
                  "\n**Penjelasan:** Urungkan Pesan Yang Dihapus Tapi Anda Harus Menjadi Admin"})
-# LORD USERBOT
-CMD_HELP.update({"grab": "**Modules:** __Grab__\n\n**Perintah:** `.grab <jumlah>`"
+# Dior-Userbot
+CMD_HELP.update({"grab": "**Modules:** __Grab__\n\n**Perintah:** `{cmd}grab <jumlah>`"
                  "\n**Penjelasan:** Mengambil Profil, Bisa Balas Ke Pesan Pengguna Lain Untuk Mengambil Profilnya\n\n**WARN:** JANGAN MENYALAH GUNAKAN PERINTAH INI"})
-# LORD USERBOT
+# Dior-Userbot
 CMD_HELP.update(
     {
-        "clone": "**Modules:** __Clone__\n\n**Perintah:** `.clone <username/balas pesan>`"
+        "clone": "**Modules:** __Clone__\n\n**Perintah:** `{cmd}clone <username/balas pesan>`"
         "\n**Penjelasan:** Clone Akun Seseorang, Tapi Username Tidak di Clone"
-        "\n\n**Perintah:** `.rclone`"
+        "\n\n**Perintah:** `{cmd}rclone`"
         "\n**Penjelasan:** Mengembalikan Akun Anda Seperti Semula"})
-# LORD USERBOT
-CMD_HELP.update({"glitch": "**Modules:** __Glitch__\n\n**Perintah:** `.glitch <level>`"
+# Dior-Userbot
+CMD_HELP.update({"glitch": "**Modules:** __Glitch__\n\n**Perintah:** `{cmd}glitch <level>`"
                  "\n**Penjelasan:** Balas Ke Media, Memberikan Efek Glicth Ke Media, Level 1 - 8"
-                 "\n\n**Perintah:** `.glitchs <level>`"
+                 "\n\n**Perintah:** `{cmd}glitchs <level>`"
                  "\n**Penjelasan:** Balas Ke Media, Memberikan Efek Glitch Ke Media, Level 1 - 8\n\n**NOTE:** Jika Tidak Memberikan Level Maka Otomatis Default Memilih Level 2"})
-# LORD USERBOT # ALVIN GANTENG
-CMD_HELP.update({"randomprofil": "**Modules:** __Random Profil__\n\n**Perintah:** `.randompp`"
-                 "\n**Penjelasan:** Mengganti Foto Profil Anda Secara Otomatis, Untuk Menghentikan Perintah Ini Gunakan Perintah `.restart`"})
+
