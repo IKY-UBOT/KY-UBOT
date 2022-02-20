@@ -26,7 +26,7 @@ async def get_user_from_event(event):
         if user.isnumeric():
             user = int(user)
         if not user:
-            await event.edit(f"`{ALIVE_NAME}`: **Kasih Gua nama pengguna,atau id nya anjing!!**")
+            await event.edit(f"`{ALIVE_NAME}`: **Kasih Gw nama pengguna,atau id nya tolol!**")
             return
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
@@ -64,9 +64,9 @@ async def gspide(rk):
     sender = await lazy.get_sender()
     me = await lazy.client.get_me()
     if not sender.id == me.id:
-        rkp = await lazy.reply("`Gua GKICK lu anjing!!!`")
+        rkp = await lazy.reply("**Gua kick lu jelek!**")
     else:
-        rkp = await lazy.edit("`Proses Global Kick anak sialan...!`")
+        rkp = await lazy.edit("`Proses Global Kick anak sialan...`")
     me = await rk.client.get_me()
     await rkp.edit(f"`{ALIVE_NAME}:` **Melakukan Aksi Global Kick..**")
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
@@ -89,7 +89,7 @@ async def gspide(rk):
         return await rkp.edit(f"`{ALIVE_NAME}`, **Kesalahan! Pengguna tidak dikenal.**")
     if user:
         if user.id == 1220829364:
-            return await rkp.edit(f"`LU GA BISA GKICK FATUR, DIA YG BIKIN GUA GOBLOK..!!` ")
+            return await rkp.edit(f"**LU GA BISA GLOBAL KICK FATUR, DIA DEVELOPER GW GOBLOK!**")
         try:
             await rk.client(BlockRequest(user))
             await rk.client(UnblockRequest(user))
