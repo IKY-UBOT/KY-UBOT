@@ -4,10 +4,10 @@
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot import CMD_HELP, bot
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
 
-
-@register(outgoing=True, pattern=r"^\.deteksi(?: |$)(.*)")
+@dior_cmd(pattern="deteksi(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -56,6 +56,6 @@ def user_full_name(user):
 # NGENTOOOOOOOTTT
 CMD_HELP.update({
     "deteksi":
-        "`.deteksi`\
+        "`{cmd}deteksi`\
           \nPenjelasan: Melihat Riwayat Grup Yang Pernah/Sedang dimasuki."
 })
