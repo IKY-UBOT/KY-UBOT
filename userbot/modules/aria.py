@@ -11,9 +11,11 @@ from subprocess import PIPE, Popen
 import aria2p
 from requests import get
 
-from userbot import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
-from userbot.events import register
+from userbot import LOGS, TEMP_DOWNLOAD_DIRECTORY
 from userbot.utils import humanbytes
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP
+from userbot.utils import dior_cmd
 
 
 def subprocess_run(cmd):
@@ -66,7 +68,7 @@ aria2 = aria2p.API(
 aria2.set_global_options({"dir": download_path})
 
 
-@register(outgoing=True, pattern=r"^\.amag(?: |$)(.*)")
+@dior_cmd(pattern="amag(?: |$)(.*)")
 async def magnet_download(event):
     magnet_uri = event.pattern_match.group(1)
     # Add Magnet URI Into Queue
@@ -82,7 +84,7 @@ async def magnet_download(event):
     await check_progress_for_dl(gid=new_gid, event=event, previous=None)
 
 
-@register(outgoing=True, pattern=r"^\.ator(?: |$)(.*)")
+@dior_cmd(pattern="ator(?: |$)(.*)")
 async def torrent_download(event):
     torrent_file_path = event.pattern_match.group(1)
     # Add Torrent Into Queue
@@ -96,7 +98,7 @@ async def torrent_download(event):
     await check_progress_for_dl(gid=gid, event=event, previous=None)
 
 
-@register(outgoing=True, pattern=r"^\.aurl(?: |$)(.*)")
+@dior_cmd(pattern="aurl(?: |$)(.*)")
 async def aurl_download(event):
     uri = [event.pattern_match.group(1)]
     try:  # Add URL Into Queue
@@ -112,7 +114,7 @@ async def aurl_download(event):
         await check_progress_for_dl(gid=new_gid, event=event, previous=None)
 
 
-@register(outgoing=True, pattern=r"^\.aclear(?: |$)(.*)")
+@dior_cmd(pattern="aclear(?: |$)(.*)")
 async def remove_all(event):
     try:
         removed = aria2.remove_all(force=True)
@@ -127,7 +129,7 @@ async def remove_all(event):
     await sleep(2.5)
 
 
-@register(outgoing=True, pattern=r"^\.apause(?: |$)(.*)")
+@dior_cmd(pattern="apause(?: |$)(.*)")
 async def pause_all(event):
     # Pause ALL Currently Running Downloads.
     await event.edit("`Menjeda unduhan...`")
@@ -137,7 +139,7 @@ async def pause_all(event):
     await sleep(2.5)
 
 
-@register(outgoing=True, pattern=r"^\.aresume(?: |$)(.*)")
+@dior_cmd(pattern="aresume(?: |$)(.*)")
 async def resume_all(event):
     await event.edit("`Melanjutkan unduhan...`")
     aria2.resume_all()
@@ -147,7 +149,7 @@ async def resume_all(event):
     await event.delete()
 
 
-@register(outgoing=True, pattern=r"^\.ashow(?: |$)(.*)")
+@dior_cmd(pattern="ashow(?: |$)(.*)")
 async def show_all(event):
     downloads = aria2.get_downloads()
     msg = ""
@@ -257,11 +259,11 @@ async def check_progress_for_dl(gid, event, previous):
 
 CMD_HELP.update(
     {
-        "aria": ">`.aurl [URL]` (or) >`.amag [Tautan Magnet]` (or) >`.ator [jalur ke file torrent]`"
+        "aria": ">`{cmd}aurl [URL]` (or) >`{cmd}amag [Tautan Magnet]` (or) >`{cmd}ator [jalur ke file torrent]`"
         "\nUsage: Unduh file ke penyimpanan server bot pengguna Anda."
-        "\n\n>`.apause (or) .aresume`"
+        "\n\n>`{cmd}apause (or) {cmd}aresume`"
         "\nUsage: Menjeda / melanjutkan unduhan yang sedang berlangsung."
-        "\n\n>`.aclear`"
+        "\n\n>`{cmd}aclear`"
         "\nUsage: Menghapus antrian unduhan, menghapus semua unduhan yang sedang berjalan."
-        "\n\n>`.ashow`"
+        "\n\n>`{cmd}ashow`"
         "\nUsage: Menunjukkan kemajuan unduhan yang sedang berlangsung."})
