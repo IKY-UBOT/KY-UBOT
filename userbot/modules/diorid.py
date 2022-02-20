@@ -1,10 +1,11 @@
 from PIL import Image, ImageDraw, ImageFont
 
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
 
 
-@register(outgoing=True, pattern=r"^\.id$")
+@dior_cmd(pattern="id$")
 async def image_maker(event):
     replied_user = await event.get_reply_message()
     await event.client.download_profile_photo(
@@ -39,7 +40,7 @@ async def image_maker(event):
 
 CMD_HELP.update(
     {
-        "id": ">`.id`\
+        "id": ">`{cmd}id`\
         \nUsage: Reply to a user to generate ID Card."
     }
 )
