@@ -2,8 +2,10 @@
 # Ported for Lord-Userbot By liualvinas/Alvin
 
 from telethon import events
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
+from userbot.utils import dior_cmd
+
 
 PRINTABLE_ASCII = range(0x21, 0x7F)
 
@@ -18,7 +20,7 @@ def aesthetify(string):
         yield chr(c)
 
 
-@register(outgoing=True, pattern=r"^\.ae(?: |$)(.*)")
+@dior_cmd(pattern="ae(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -30,6 +32,6 @@ async def _(event):
 
 CMD_HELP.update({
     "aeshtetic":
-    "`.ae <teks>`\
+    "`{cmd}ae <teks>`\
     \nUsage: mengubah font teks menjadi aeshtetic"
 })
