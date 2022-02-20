@@ -2,13 +2,14 @@ import json
 
 import requests
 
+from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot.utils import dior_cmd
 
 PLACE = ""
 
 
-@register(pattern=r"^\.adzan(?: |$)(.*)")
+@dior_cmd(pattern="adzan(?: |$)(.*)")
 async def get_adzan(adzan):
     if not adzan.pattern_match.group(1):
         LOCATION = PLACE
@@ -53,5 +54,5 @@ async def get_adzan(adzan):
     await adzan.edit(result)
 
 
-CMD_HELP.update({"adzan": "\n\n`>.adzan <kota>`"
+CMD_HELP.update({"adzan": "\n\n`{cmd}adzan <kota>`"
                  "\nPenjelasan: Memberikan Informasi Waktu Sholat."})
