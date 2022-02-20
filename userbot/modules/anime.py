@@ -24,8 +24,9 @@ from telethon.tl.types import (DocumentAttributeAnimated,
                                DocumentAttributeFilename, MessageMediaDocument)
 from telethon.utils import is_image, is_video
 
+from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot.utils import dior_cmd
 
 jikan = Jikan()
 
@@ -194,7 +195,7 @@ def replace_text(text):
         "")
 
 
-@register(outgoing=True, pattern=r"^\.anime ?(.*)")
+@dior_cmd(pattern="anime ?(.*)")
 async def anime(event):
     query = event.pattern_match.group(1)
     reply = await event.get_reply_message()
@@ -270,7 +271,7 @@ async def anime(event):
     await event.edit(rep, parse_mode="HTML", link_preview=False)
 
 
-@register(outgoing=True, pattern=r"^\.manga ?(.*)")
+@dior_cmd(pattern="manga ?(.*)")
 async def manga(event):
     query = event.pattern_match.group(1)
     await event.edit("`Searching Manga...`")
@@ -318,7 +319,7 @@ async def manga(event):
         await event.edit(rep, parse_mode="HTML", link_preview=False)
 
 
-@register(outgoing=True, pattern=r"^\.a(kaizoku|kayo) ?(.*)")
+@dior_cmd(pattern="a(kaizoku|kayo) ?(.*)")
 async def site_search(event):
     message = await event.get_reply_message()
     search_query = event.pattern_match.group(2)
@@ -367,7 +368,7 @@ async def site_search(event):
             await event.edit(result, parse_mode="HTML")
 
 
-@register(outgoing=True, pattern=r"^\.char ?(.*)")
+@dior_cmd(pattern="char ?(.*)")
 async def character(event):
     message = await event.get_reply_message()
     search_query = event.pattern_match.group(1)
@@ -416,7 +417,7 @@ async def character(event):
     )
 
 
-@register(outgoing=True, pattern=r"^\.upcoming ?(.*)")
+@dior_cmd(pattern="upcoming ?(.*)")
 async def upcoming(message):
     rep = "<b>Upcoming anime</b>\n"
     later = jikan.season_later()
@@ -430,7 +431,7 @@ async def upcoming(message):
         await message.edit(rep, parse_mode="html")
 
 
-@register(outgoing=True, pattern=r"^\.scanime ?(.*)")
+@dior_cmd(pattern="scanime ?(.*)")
 async def get_anime(message):
     try:
         query = message.pattern_match.group(1)
@@ -535,7 +536,7 @@ async def get_anime(message):
     await message.client.send_file(message.chat_id, file=main_poster, caption=captions)
 
 
-@register(outgoing=True, pattern=r"^\.smanga ?(.*)")
+@dior_cmd(pattern="smanga ?(.*)")
 async def manga(message):
     search_query = message.pattern_match.group(1)
     await message.get_reply_message()
@@ -551,7 +552,7 @@ async def manga(message):
     )
 
 
-@register(outgoing=True, pattern=r"^\.sanime ?(.*)")
+@dior_cmd(pattern="sanime ?(.*)")
 async def anime(message):
     search_query = message.pattern_match.group(1)
     await message.get_reply_message()
@@ -573,7 +574,7 @@ async def anime(message):
         )
 
 
-@register(outgoing=True, pattern=r"^\.whatanime")
+@dior_cmd(pattern="whatanime")
 async def whatanime(e):
     media = e.media
     if not media:
@@ -662,20 +663,20 @@ def is_gif(file):
 
 CMD_HELP.update({
     "anime":
-    "`.anime` <nama anime>\
+    "`{cmd}anime` <nama anime>\
     \nUsage: mencari informasi anime.\
-    \n\n`.manga` <manga name>\
+    \n\n`{cmd}manga` <manga name>\
     \nUsage: mencari informasi manga.\
-    \n\n`.akaizoku` or `.akayo` <anime name>\
+    \n\n`{cmd}akaizoku` or `{cmd}akayo` <anime name>\
     \nUsage: Mencari anime dan memberikan link tautan Unduh Anime.\
-    \n\n`.char` <character name>\
+    \n\n`{cmd}char` <character name>\
     \nUsage: Mencari informasi karakter anime.\
-    \n\n`.upcoming`\
+    \n\n`{cmd}upcoming`\
     \nUsage: Mencari informasi Anime yang akan datang.\
-    \n\n`.scanime` <anime> or .sanime <anime>\
+    \n\n`{cmd}scanime` <anime> or {cmd}sanime <anime>\
     \nUsage: Mencari anime.\
-    \n\n`.smanga` <manga>\
+    \n\n`{cmd}smanga` <manga>\
     \nUsage: Mencari manga.\
-    \n\n`.whatanime` Reply with media.\
+    \n\n`{cmd}whatanime` Reply with media.\
     \nUsage: Temukan anime dari file media."
 })
