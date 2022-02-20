@@ -1,14 +1,15 @@
 import json
 import urllib.request
 
-
-from userbot.events import register
 from userbot import CMD_HELP
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
+
 
 
 # Port By @VckyouuBitch From GeezProject
 # Buat Kamu Yang Hapus Credits. Intinya Kamu Anjing:)
-@register(outgoing=True, pattern="^.ip(?: |$)(.*)")
+@dior_cmd(pattern="ip(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -40,7 +41,7 @@ async def _(event):
 CMD_HELP.update(
     {
         "fakeaddress": "**IP HACK**\
-\n\n**Syntax : **`.ip <ip address>`\
+\n\n**Syntax : **`{cmd}ip <ip address>`\
 \n**Usage :** Memberikan detail tentang alamat ip."
     }
 )
