@@ -9,7 +9,7 @@ import json
 import re
 
 import requests
-from userbot.events import register
+from userbot.utils import dior_cmd
 from userbot import bot
 
 
@@ -215,7 +215,7 @@ async def formatJSON(outData):
 url = "https://graphql.anilist.co"
 
 
-@register(outgoing=True, pattern=r"^\.anichar ?(.*)")
+@dior_cmd(pattern="anichar ?(.*)")
 async def anilist(event):
     search = event.pattern_match.group(1)
     reply_to_id = event.message.id
@@ -248,7 +248,7 @@ async def anilist(event):
         await event.edit("Sorry, No such results")
 
 
-@register(outgoing=True, pattern=r"^\.airing ?(.*)")
+@dior_cmd(pattern="airing ?(.*)")
 async def anilist(event):
     search = event.pattern_match.group(1)
     variables = {"search": search}
@@ -265,7 +265,7 @@ async def anilist(event):
     await event.edit(ms_g)
 
 
-@register(outgoing=True, pattern=r"^\.animanga ?(.*)")
+@dior_cmd(pattern="animanga ?(.*)")
 async def anilist(event):
     search = event.pattern_match.group(1)
     reply_to_id = event.message.id
@@ -326,7 +326,7 @@ async def anilist(event):
             await event.edit(ms_g)
 
 
-@register(outgoing=True, pattern=r"^\.anilist ?(.*)")
+@dior_cmd(pattern="anilist ?(.*)")
 async def anilist(event):
     input_str = event.pattern_match.group(1)
     event = await event.edit("Searching...")
