@@ -1,9 +1,5 @@
 # Yang Hapus Besok Mati Aminnn
 # Port By @Vckyouuu
-# Piki mintaa yaaa
-# Mks sm sm
-# Rama ganteng mks sm sm
-#Fatur paling cakep y
 
 from telethon.errors import ChatSendInlineForbiddenError, ChatSendStickersForbiddenError
 
@@ -11,12 +7,12 @@ from userbot.events import register
 from userbot import CMD_HELP, bot
 
 
-@register(outgoing=True, pattern=r"^\.prg (.*)")
+@register(outgoing=True, pattern=r"^\.prog (.*)")
 async def honkasays(event):
     await event.edit("`Sedang Memprosess!!!`")
     text = event.pattern_match.group(1)
     if not text:
-        return await event.edit("`Beri Aku Bebeberapa Teks, Contoh .prog test`")
+        return await event.edit("`Masukin text dulu, Contoh .prog owner jelek`")
     try:
         if not text.endswith("."):
             text = text + "."
@@ -43,10 +39,10 @@ async def honkasays(event):
             )
         await event.delete()
     except ChatSendInlineForbiddenError:
-        await event.edit("`Boss! Saya tidak bisa menggunakan hal-hal sebaris di sini...`")
+        await event.edit("`Ga bisa ngirim pesan inline disini.`")
     except ChatSendStickersForbiddenError:
-        await event.edit("Maaf bos, saya tidak bisa mengirim stiker ke sini !!")
+        await event.edit("Ga ada izin untuk mengirimkan stiker disini!")
 
 
-CMD_HELP.update({"prog": "`.prg`\
-    \nPenjelasan: .prg <kata kata>. Biar bisa lihat kodok bentuk badut"})
+CMD_HELP.update({"prog": "`.prog`\
+    \nPenjelasan: .prog <kata kata>. Biar bisa lihat kodok bentuk badut"})
