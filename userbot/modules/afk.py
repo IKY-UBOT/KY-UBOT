@@ -21,6 +21,8 @@ from userbot import (  # noqa pylint: disable=unused-import isort:skip
     REPO_NAME,
     bot,
 )
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
 from userbot.events import register
 
 # ========================= CONSTANTS ============================
@@ -43,7 +45,7 @@ afk_start = {}
 # =================================================================
 
 
-@register(outgoing=True, pattern="^.afk(?: |$)(.*)", disable_errors=True)
+@dior_cmd(pattern="afk(?: |$)(.*)", disable_errors=True)
 async def set_afk(afk_e):
     """ For .afk command, allows you to inform people that you are afk when they message you """
     message = afk_e.text  # pylint:disable=E0602
@@ -261,7 +263,7 @@ async def afk_on_pm(sender):
 
 CMD_HELP.update({
     "afk":
-    "`.afk` [Alasan]\
+    "`{cmd}afk` [Alasan]\
 \nUsage: Lakukan ketika ingin OFF.\nSiapapun Yang Balas, Tag, Atau Chat Kamu \
 Mereka Akan Tau Alasan Kamu OFF.\n\nAFK Bisa Dilakukan Dan Dibatalkan Dimanapun.\
 "
