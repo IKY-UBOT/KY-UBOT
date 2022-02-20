@@ -8,10 +8,11 @@ import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
 
 
-@register(outgoing=True, pattern=r"^\.dgb (.*)")
+@dior_cmd(pattern="dgb (.*)")
 async def stext(event):
     sticktext = event.pattern_match.group(1)
 
@@ -54,7 +55,7 @@ async def stext(event):
 
 
 CMD_HELP.update({
-    'diorgb':
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.dgb` <text>"
+    'dgb':
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}dgb` <text>"
     "\nUsage: Mengubah Teks/Kata-Kata, Menjadi Stiker Anda."
 })
