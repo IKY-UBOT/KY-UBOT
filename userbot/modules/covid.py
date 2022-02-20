@@ -5,10 +5,11 @@
 
 from covid import Covid
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
 
 
-@register(outgoing=True, pattern="^.covid (.*)")
+@dior_cmd(pattern="covid (.*)")
 async def corona(event):
     await event.edit("`Mencari Informasi....`")
     country = event.pattern_match.group(1)
@@ -30,7 +31,7 @@ async def corona(event):
     await event.edit(f"`Info Virus corona di {country}:`\n\n{output_text}")
 
 
-@register(outgoing=True, pattern="^.covid$")
+@dior_cmd(pattern="covid$")
 async def corona(event):
     await event.edit("`Mencari informasi...`")
     country = "World"
@@ -52,7 +53,7 @@ async def corona(event):
     await event.edit(f"`Info Virus corona di {country}:`\n\n{output_text}")
 
 
-CMD_HELP.update({"covid": "`.covid` **<negara>**"
+CMD_HELP.update({"covid": "`{cmd}covid` **<negara>**"
                  "\nPenjelasan: Dapatkan informasi tentang data covid-19 di suatu Negara.`\n\n"
-                 "`.covid`"
+                 "`{cmd}covid`"
                  "\nPenjelasan: Dapatkan informasi tentang data covid-19 di Seluruh Dunia.\n"})
