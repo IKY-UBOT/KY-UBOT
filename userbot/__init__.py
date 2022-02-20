@@ -98,6 +98,9 @@ BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", ""))
 CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
 SUDO_HANDLER = os.environ.get("SUDO_HANDLER") or "$"
 
+SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "1220829364").split()}
+BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
+
 # Userbot logging feature switch.
 BOTLOG = sb(os.environ.get("BOTLOG", "True"))
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
