@@ -8,10 +8,10 @@
 from bitlyshortener import Shortener
 from re import match
 from userbot import BITLY_TOKEN, BOTLOG, BOTLOG_CHATID
-from userbot.events import register
+from userbot.utils import dior_cmd
 
 
-@register(outgoing=True, pattern=r"^\.bitly(?: |$)(.*)")
+@dior_cmd(pattern="bitly(?: |$)(.*)")
 async def shortener(short):
     """
         Shorten link using bit.ly API
