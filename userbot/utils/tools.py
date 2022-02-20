@@ -7,7 +7,7 @@ from os.path import basename
 import os.path
 from html_telegraph_poster import TelegraphPoster
 from typing import Optional, Union
-from userbot import bot, LOGS
+from userbot import bot, LOGS, SUDO_USERS
 
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator, DocumentAttributeFilename
@@ -234,7 +234,7 @@ def post_to_telegraph(title, html_format_content):
 async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None):
     parse_mode = parse_mode or "md"
     link_preview = link_preview or False
-    time = time or 5
+    time = time or 15
     if event.sender_id in SUDO_USERS:
         reply_to = await event.get_reply_message()
         newevent = (
@@ -250,3 +250,12 @@ async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None
         )
     await asyncio.sleep(time)
     return await newevent.delete()
+
+
+async def reply_id(event):
+    reply_to_id = None
+    if event.sender_id in SUDO_USERS:
+        reply_to_id = event.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+    return reply_to_id
