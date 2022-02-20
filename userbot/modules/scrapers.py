@@ -60,8 +60,9 @@ from userbot import (
     REM_BG_API_KEY,
     bot
 )
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import dior_cmd
 
-from userbot.events import register
 from userbot.utils import chrome, googleimagesdownload, progress, options
 
 CARBONLANG = "auto"
@@ -104,14 +105,14 @@ DOGBIN_URL = "https://del.dog/"
 NEKOBIN_URL = "https://nekobin.com/"
 
 
-@register(outgoing=True, pattern="^.crblangg (.*)")
+@dior_cmd(pattern="crblangg (.*)")
 async def setlang(prog):
     global CARBONLANG
     CARBONLANG = prog.pattern_match.group(1)
     await prog.edit(f"Language for carbon.now.sh set to {CARBONLANG}")
 
 
-@register(outgoing=True, pattern="^.carbond")
+@dior_cmd(pattern="carbond")
 async def carbon_api(e):
     """ A Wrapper for carbon.now.sh """
     await e.edit("`Processing..`")
@@ -177,7 +178,7 @@ async def carbon_api(e):
     await e.delete()  # Deleting msg
 
 
-@register(outgoing=True, pattern="^.img (.*)")
+@dior_cmd(pattern="img (.*)")
 async def img_sampler(event):
     """ For .img command, search and return images matching the query. """
     await event.edit("`Sabar Yaa... Bukan Nyari Gambar Bugil Kan?`")
@@ -208,7 +209,7 @@ async def img_sampler(event):
     await event.delete()
 
 
-@register(outgoing=True, pattern=r"^\.currency (.*)")
+@dior_cmd(pattern="currency (.*)")
 async def moni(event):
     input_str = event.pattern_match.group(1)
     input_sgra = input_str.split(" ")
@@ -236,7 +237,7 @@ async def moni(event):
         return await event.edit("`Invalid syntax.`")
 
 
-@register(outgoing=True, pattern=r"^\.google (.*)")
+@dior_cmd(pattern="google (.*)")
 async def gsearch(q_event):
     match = q_event.pattern_match.group(1)
     page = findall(r"page=\d+", match)
@@ -269,7 +270,7 @@ async def gsearch(q_event):
         )
 
 
-@register(outgoing=True, pattern=r"^\.wiki (.*)")
+@dior_cmd(pattern="wiki (.*)")
 async def wiki(wiki_q):
     match = wiki_q.pattern_match.group(1)
     try:
@@ -298,7 +299,7 @@ async def wiki(wiki_q):
         )
 
 
-@register(outgoing=True, pattern=r"^\.ud (.*)")
+@dior_cmd(pattern="ud (.*)")
 async def urban_dict(ud_e):
     await ud_e.edit("Processing...")
     query = ud_e.pattern_match.group(1)
@@ -350,7 +351,7 @@ async def urban_dict(ud_e):
         await ud_e.edit("No result found for **" + query + "**")
 
 
-@register(outgoing=True, pattern=r"^\.tts(?: |$)([\s\S]*)")
+@dior_cmd(pattern="tts(?: |$)([\s\S]*)")
 async def text_to_speech(query):
     textx = await query.get_reply_message()
     message = query.pattern_match.group(1)
@@ -393,7 +394,7 @@ async def text_to_speech(query):
 
 
 # kanged from Blank-x ;---;
-@register(outgoing=True, pattern=r"^\.imdb (.*)")
+@dior_cmd(pattern="imdb (.*)")
 async def imdb(e):
     try:
         movie_name = e.pattern_match.group(1)
@@ -488,7 +489,7 @@ async def imdb(e):
         await cs.edit("Plox enter **Valid movie name** kthx")
 
 
-@register(outgoing=True, pattern=r"^\.tr(?: |$)([\s\S]*)")
+@dior_cmd(pattern="tr(?: |$)([\s\S]*)")
 async def translateme(trans):
     translator = Translator()
     textx = await trans.get_reply_message()
@@ -517,7 +518,7 @@ async def translateme(trans):
         )
 
 
-@register(pattern=r"^\.lang (tr|tts) (.*)", outgoing=True)
+@dior_cmd(pattern="lang (tr|tts) (.*)")
 async def lang(value):
     util = value.pattern_match.group(1).lower()
     if util == "tr":
@@ -549,7 +550,7 @@ async def lang(value):
         )
 
 
-@register(outgoing=True, pattern=r"^\.wolfram (.*)")
+@dior_cmd(pattern="wolfram (.*)")
 async def wolfram(wvent):
     if WOLFRAM_ID is None:
         await wvent.edit(
@@ -570,7 +571,7 @@ async def wolfram(wvent):
         )
 
 
-@register(outgoing=True, pattern=r"^\.ytsearch (.*)")
+@dior_cmd(pattern="ytsearch (.*)")
 async def yt_search(video_q):
     query = video_q.pattern_match.group(1)
     if not query:
@@ -588,7 +589,7 @@ async def yt_search(video_q):
     await video_q.edit(output, link_preview=False)
 
 
-@register(outgoing=True, pattern=r"\.(aud|vid) (.*)")
+@dior_cmd(pattern="(aud|vid) (.*)")
 async def download_video(v_url):
     url = v_url.pattern_match.group(2)
     url = v_url.pattern_match.group(1).lower()
@@ -700,7 +701,7 @@ def deEmojify(inputString):
     return get_emoji_regexp().sub("", inputString)
 
 
-@register(pattern=r".ocr (.*)", outgoing=True)
+@dior_cmd(pattern="ocr (.*)")
 async def ocr(event):
     if not OCR_SPACE_API_KEY:
         return await event.edit(
@@ -724,7 +725,7 @@ async def ocr(event):
     os.remove(downloaded_file_name)
 
 
-@register(pattern="^.ss (.*)", outgoing=True)
+@dior_cmd(pattern="ss (.*)")
 async def capture(url):
     """ For .ss command, capture a website's screenshot and send the photo. """
     await url.edit("`Processing...`")
@@ -773,7 +774,7 @@ async def capture(url):
         await url.delete()
 
 
-@register(outgoing=True, pattern=r"^\.nekko(?: |$)([\s\S]*)")
+@dior_cmd(pattern="nekko(?: |$)([\s\S]*)")
 async def neko(nekobin):
     """For .paste command, pastes the text directly to dogbin."""
     nekobin_final_url = ""
@@ -826,7 +827,7 @@ async def neko(nekobin):
         )
 
 
-@register(outgoing=True, pattern=r"^\.neko(?: |$)([\s\S]*)")
+@dior_cmd(pattern="neko(?: |$)([\s\S]*)")
 async def neko(nekobin):
     """For .paste command, pastes the text directly to dogbin."""
     nekobin_final_url = ""
@@ -874,7 +875,7 @@ async def neko(nekobin):
     await nekobin.edit(reply_text)
 
 
-@register(outgoing=True, pattern=r"^\.getpaste(?: |$)(.*)")
+@dior_cmd(pattern="getpaste(?: |$)(.*)")
 async def get_dogbin_content(dog_url):
     textx = await dog_url.get_reply_message()
     message = dog_url.pattern_match.group(1)
@@ -926,7 +927,7 @@ async def get_dogbin_content(dog_url):
         )
 
 
-@register(outgoing=True, pattern=r"^\.paste(?: |$)([\s\S]*)")
+@dior_cmd(pattern="paste(?: |$)([\s\S]*)")
 async def paste(pstl):
     dogbin_final_url = ""
     match = pstl.pattern_match.group(1).strip()
@@ -988,7 +989,7 @@ async def paste(pstl):
         )
 
 
-@register(outgoing=True, pattern="^.rbg(?: |$)(.*)")
+@dior_cmd(pattern="rbg(?: |$)(.*)")
 async def kbg(remob):
     """ For .rbg command, Remove Image Background. """
     if REM_BG_API_KEY is None:
@@ -1071,7 +1072,7 @@ async def ReTrieveURL(input_url):
     return r
 
 
-@register(outgoing=True, pattern=r"^.direct(?: |$)([\s\S]*)")
+@dior_cmd(pattern="direct(?: |$)([\s\S]*)")
 async def direct_link_generator(request):
     """ direct links generator """
     await request.edit("`Processing...`")
@@ -1374,7 +1375,7 @@ def useragent():
     return user_agent.text
 
 
-@register(pattern=r"^.decode$", outgoing=True)
+@dior_cmd(pattern="decode$")
 async def parseqr(qr_e):
     """ For .decode command, get QR Code/BarCode content from the replied photo. """
     downloaded_file_name = await qr_e.client.download_media(
@@ -1404,7 +1405,7 @@ async def parseqr(qr_e):
     await qr_e.edit(qr_contents)
 
 
-@register(pattern=r".barcode(?: |$)([\s\S]*)", outgoing=True)
+@dior_cmd(pattern="barcode(?: |$)([\s\S]*)", outgoing=True)
 async def bq(event):
     """ For .barcode command, genrate a barcode containing the given content. """
     await event.edit("`Processing..`")
@@ -1446,7 +1447,7 @@ async def bq(event):
     await event.delete()
 
 
-@register(pattern=r".makeqr(?: |$)([\s\S]*)", outgoing=True)
+@dior_cmd(pattern="makeqr(?: |$)([\s\S]*)")
 async def make_qr(makeqr):
     """ For .makeqr command, make a QR Code containing the given content. """
     input_str = makeqr.pattern_match.group(1)
@@ -1489,124 +1490,124 @@ async def make_qr(makeqr):
 
 CMD_HELP.update(
     {
-        "img": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.img <search_query>`\
+        "img": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}img <search_query>`\
          \n↳ : Does an image search on Google and shows 5 images."
     }
 )
 CMD_HELP.update(
     {
-        "currency": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.currency <amount> <from> <to>`\
+        "currency": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}currency <amount> <from> <to>`\
          \n↳ : Converts various currencies for you."
     }
 )
 CMD_HELP.update(
     {
-        "carbon2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.carbon <text> [or reply messages]`\
+        "carbon2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}carbon <text> [or reply messages]`\
          \n↳ : Beautify your code using carbon.now.sh\
          \n**How to Use** > `.crblang` <text> to set language for your code."
     }
 )
 CMD_HELP.update(
     {
-        "google": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.google <query>`\
+        "google": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}google <query>`\
          \n↳ : Does a search on Google."
     }
 )
 CMD_HELP.update(
     {
-        "wiki": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.wiki <query>`\
+        "wiki": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}wiki <query>`\
          \n↳ : Does a search on Wikipedia."
     }
 )
 CMD_HELP.update(
     {
-        "ud": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ud <query>`\
-         \n↳ : Does a search on Urban Dictionary."
+        "ud": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ud <query>`\
+         \n↳ : Melakukan pencarian di Urban Dictionary."
     }
 )
 CMD_HELP.update(
     {
-        "tts": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tts <text> [or reply]`\
-         \n↳ : Translates text to speech for the language which is set.\
-         \n**How to Use** > `.lang tts <language code>` to set language for tts. (Default is English.)"
+        "tts": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tts <text> [or reply]`\
+         \n↳ : mengubah text menjadi audio.\
+         \n**How to Use** > `{cmd}lang tts <language code>` to set language for tts. (Default is English.)"
     }
 )
 CMD_HELP.update(
     {
-        "translate": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tr` <text> [or reply]\
-         \n↳ : Translates text to the language which is set.\
-         \n**How to Use** > `.lang tr` <language code> to set language for tr. (Default is English)"
+        "translate": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tr` <text> [or reply]\
+         \n↳ : Menerjemahkan teks ke bahasa yang diatur.\
+         \n**How to Use** > `{cmd}lang tr` <language code> to set language for tr. (Default is English)"
     }
 )
 CMD_HELP.update(
     {
-        "imdb": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.imdb <movie-name>`\
-         \n↳ : Shows movie info and other stuff."
+        "imdb": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}imdb <movie-name>`\
+         \n↳ : Menampilkan info film dan hal-hal lain."
     }
 )
 CMD_HELP.update(
     {
-        "wolfram": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.wolfram` <query>\
-         \n↳ : Get answers to questions using WolframAlpha Spoken Results API."
+        "wolfram": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}wolfram` <query>\
+         \n↳ : Dapatkan jawaban atas pertanyaan menggunakan WolframAlpha Spoken Results API."
     }
 )
 CMD_HELP.update(
     {
-        "screenshot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ss <url>`\
-         \n↳ : Takes a screenshot of a website and sends the screenshot.\
+        "screenshot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ss <url>`\
+         \n↳ : Mengambil tangkapan layar situs web dan mengirimkan tangkapan layar.\
          \n**Example of a valid URL** : `https://www.google.com`"
     }
 )
 CMD_HELP.update(
     {
-        "nekobin": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.neko` <text/reply>\
-         \n↳ : Create a paste or a shortened url using dogbin"
+        "nekobin": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}neko` <text/reply>\
+         \n↳ : Buat tempel atau url singkat menggunakan dogbin"
     }
 )
 CMD_HELP.update(
     {
-        "getpaste": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.getpaste` <text/reply>\
-         \n↳ : Create a paste or a shortened url using dogbin"
+        "getpaste": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}getpaste` <text/reply>\
+         \n↳ : Buat tempel atau url singkat menggunakan dogbin"
     }
 )
 CMD_HELP.update(
     {
-        "removebg": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.rbg` <Link to Image> atau reply ke file gambar (Peringatan: ini tidak akan bekerja untuk sticker.)\
+        "removebg": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}rbg` <Link to Image> atau reply ke file gambar (Peringatan: ini tidak akan bekerja untuk sticker.)\
          \n↳ : Manghapus latar belakang gambar."
     }
 )
 CMD_HELP.update(
     {
-        "ocr": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ocr` <language/bahasa>\
-         \n↳ : Reply to an image or sticker to extract text from it."
+        "ocr": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ocr` <language/bahasa>\
+         \n↳ : Balas gambar atau stiker untuk mengekstrak teks darinya."
     }
 )
 CMD_HELP.update(
     {
-        "direct": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙`.direct` <url>\
-         \n↳ : Reply to a link or paste a URL to generate a direct download link.\n**Supported Urls** : `Google Drive` - `Cloud Mail` - `Yandex.Disk` - `AFH` - `ZippyShare` - `MediaFire` - `SourceForge` - `OSDN` - `GitHub`"
+        "direct": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙`{cmd}direct` <url>\
+         \n↳ : Balas tautan atau tempel URL untuk menghasilkan tautan unduhan langsung.\n**Supported Urls** : `Google Drive` - `Cloud Mail` - `Yandex.Disk` - `AFH` - `ZippyShare` - `MediaFire` - `SourceForge` - `OSDN` - `GitHub`"
     }
 )
 CMD_HELP.update(
     {
-        "rcode": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.makeqr <content>`\
+        "rcode": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}makeqr <content>`\
          \n↳ : Make a QR Code from the given content.\nExample: .makeqr www.google.com\nNote: use .decode <reply to barcode/qrcode> to get decoded content."
     }
 )
 CMD_HELP.update(
     {
-        "barcode": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `.barcode` <content>"
+        "barcode": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `{cmd}barcode` <content>"
     }
 )
 
 CMD_HELP.update(
     {
         "youtube":
-        "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `.aud <link yt>`\
-    \n↳ : Downloads the AUDIO from the given link\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `.vid <link yt>`\
-    \n↳ : Downloads the VIDEO from the given link\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `.ytsearch <search>`\
-    \n↳ : Does a Youtube Search."
+        "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}aud <link yt>`\
+    \n↳ : Unduh AUDIO dari tautan yang diberikan\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vid <link yt>`\
+    \n↳ : Unduh VIDEO dari tautan yang diberikan\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}ytsearch <search>`\
+    \n↳ : Melakukan Pencarian Youtube."
     }
 )
