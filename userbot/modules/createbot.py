@@ -1,18 +1,18 @@
 # nyenyenyenye
 # FROM skyzu-userbot <https://github.com/Skyzu/skyzu-userbot>
-# port by koala🐨/@manusiarakitann
-# ior minta ye bg 
+# port by @fandasupport
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
+from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot.utils import dior_cmd
 
 chat = "@BotFather"
 
 
-@register(outgoing=True, pattern="^.newbot ?(.*)")
+@dior_cmd(pattern="newbot ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -47,7 +47,7 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "createbot": ".newbot\
+        "createbot": "{cmd}newbot\
     \nUntuk Membuat Bot Dari Botfather, .botbaru  < bot_name > <bot_username >  ."
     }
 )
