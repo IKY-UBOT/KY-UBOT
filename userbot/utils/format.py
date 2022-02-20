@@ -38,15 +38,7 @@ def htmlmentionuser(name, userid):
 
 
 def reformattext(text):
-    return text.replace(
-        "~",
-        "").replace(
-        "_",
-        "").replace(
-            "*",
-            "").replace(
-                "`",
-        "")
+    return text.replace("~", "").replace("_", "").replace("*", "").replace("`", "")
 
 
 def replacetext(text):
