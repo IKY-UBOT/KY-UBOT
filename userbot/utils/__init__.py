@@ -33,5 +33,6 @@ from .tools import (
     edit_or_reply,
     take_screen_shot,
     time_formatter,
+    media_type,
 )
 from .utils import autobot, load_module, remove_plugin, start_assistant, create_supergroup
