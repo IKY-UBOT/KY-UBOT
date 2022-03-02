@@ -14,8 +14,8 @@ from userbot import (
     ANTI_SPAMBOT,
     ANTI_SPAMBOT_SHOUT,
     BOTLOG,
-    CMD_HELP
     BOTLOG_CHATID,
+    CMD_HELP,
     bot,
 )
 
@@ -127,7 +127,7 @@ async def ANTI_SPAMBOTS(welcm):
                             "Info",
                         ):
                             if users.last_name == "Bot":
-                                reason = "Known spambots"
+                                reason = "Known spambot"
                                 spambot = True
 
                     if spambot:
@@ -146,7 +146,7 @@ async def ANTI_SPAMBOTS(welcm):
                         await welcm.reply(
                             "@admins\n"
                             "`ANTI SPAMBOT DETECTOR!\n"
-                            "PENGGUNA INI COCOK DENGAN ALGORITMA SAYA SEBAGAI SPAMBOT!`"
+                            "THIS USER MATCHES MY ALGORITHMS AS A SPAMBOT!`"
                             f"REASON: {reason}"
                         )
                         kicked = False
@@ -172,7 +172,7 @@ async def ANTI_SPAMBOTS(welcm):
                             await welcm.reply(
                                 "@admins\n"
                                 "`ANTI SPAMBOT DETECTOR!\n"
-                                "PENGGUNA INI COCOK DENGAN ALGORITMA SAYA SEBAGAI SPAMBOT!`"
+                                "THIS USER MATCHES MY ALGORITHMS AS A SPAMBOT!`"
                                 f"REASON: {reason}"
                             )
                             kicked = False
@@ -196,8 +196,8 @@ async def ANTI_SPAMBOTS(welcm):
 
 CMD_HELP.update(
     {
-        "anti_spambot": "Jika diaktifkan di config.env atau env var,"
-        "\nmodul ini akan melarang (atau memberi tahu admin grup tentang)"
-        "\nspammer (s) jika cocok dengan algoritme anti-spam dari bot pengguna."
+        "anti_spambot": "If enabled in config.env or env var,"
+        "\nthis module will ban(or inform the admins of the group about) the"
+        "\nspammer(s) if they match the userbot's anti-spam algorithm."
     }
 )
