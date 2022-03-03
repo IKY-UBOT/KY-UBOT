@@ -14,7 +14,7 @@ GCAST_BLACKLIST = [
     -1001459701099,  # CatUserbotSupport
     -1001109837870,  # TelegramBotIndonesia
     -1001752592753,  # Skyzusupport
-    -1001549206558,  # FandaSupport
+    -1001740445090,  # Fanda Groups
     -1001380293847,  # NastySupport
 ]
 
